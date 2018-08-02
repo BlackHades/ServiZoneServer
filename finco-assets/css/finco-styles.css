@@ -1,0 +1,60 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 6, 2017, 4:24:04 PM
+    Author     : finco
+*/
+
+.alert-name-missing-storage-symlink, #analytics-dashboard, .analytics-container
+{
+    display: none;
+}
+
+
+.panel.widget p{
+    display: none;
+}
+
+.panel.widget i{
+    float: left;
+}
+
+#dataTable #bread-actions a{
+    margin-right: 5px;
+}
+
+.app-container.expanded .panel.widget h4{
+    line-height: 30px;
+    font-weight: bold;
+    padding-left: 120px;
+    padding-top: 20px;
+}
+
+.app-container.expanded .panel.widget h4 a{
+    color: #FFF;
+}
+
+.panel.widget h4{
+    font-size: 25px;
+    text-align: left;
+}
+
+.panel.widget.bgimage{
+    border-radius: 20px;
+}
+
+footer, .flat-blue .app-footer {
+    background: black;
+}
+
+.flat-blue .app-footer{
+    opacity: 1;
+}
+
+.panel.widget .dimmer{
+    background: none;
+    background-color: none;
+}

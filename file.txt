@@ -1,0 +1,10 @@
+user 100
+email-user@user.com
+password-user
+type - user
+
+user 2$
+
+email - expert@expert.com
+password = expert
+type-expert
