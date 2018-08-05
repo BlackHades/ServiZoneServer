@@ -42,3 +42,10 @@ Route::group(['prefix' => 'admin'], function () {
 Route::get('test', function (){
    dd(\App\User::latest()->first());
 });
+
+Route::get('clear', function (){
+   \Illuminate\Support\Facades\Artisan::call('cache:clear');
+   \Illuminate\Support\Facades\Artisan::call('config:cache');
+   \Illuminate\Support\Facades\Artisan::call('view:clear');
+   dd('done');
+});

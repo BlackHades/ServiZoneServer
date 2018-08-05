@@ -48,4 +48,8 @@ class User extends Authenticatable {
      public function profession(){
         return $this->belongsTo('App\Profession', 'profession_id');
     }
+
+    function token(){
+        return $this->hasOne(Tokens::class,'user_id');
+    }
 }

@@ -16,7 +16,7 @@ class HomeController extends Controller {
         $latitude = $request->latitude;
         $longitude = $request->longitude;
 
-        $closest_experts = Expert::select('users.id', 'users.name', 'age', 'avatar', 'gender', 'mobile', 'profession', 'email', 'address', 'about')
+        $closest_experts = Expert::select('users.id', 'users.name', 'age', 'avatar', 'gender', 'mobile', 'profession', 'email', 'address', 'about','longitude','latitude')
             ->withCount('reviews')
             ->join('professions', 'users.profession_id', 'professions.id')
             ->take(10)

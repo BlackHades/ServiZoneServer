@@ -26,7 +26,7 @@ class Expert extends Model {
     }
     
     public function reviews(){
-        return $this->hasMany('App\Review');
+        return $this->hasMany('App\Review','expert_id');
     }
     
     public function averageRating(){

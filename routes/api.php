@@ -55,6 +55,7 @@ Route::group(['middleware' => ['fincoAuth'], 'prefix' => 'users'], function() {
     Route::post('edit', 'Api\UserController@edit');
     Route::post('search', 'UserController@index');
     Route::post('search', 'UserController@search');
+    Route::post('logout','AuthController@removeToken');
 });
 
 
