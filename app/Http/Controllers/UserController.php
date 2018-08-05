@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use Illuminate\Http\Request;
 use TCG\Voyager\Http\Controllers\VoyagerBreadController;
 
 class UserController extends VoyagerBreadController {
@@ -39,5 +38,8 @@ class UserController extends VoyagerBreadController {
 
         echo $u;
     }
+
+
+
 
 }

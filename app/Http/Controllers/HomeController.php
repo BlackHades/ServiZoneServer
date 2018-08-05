@@ -2,15 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
 use App\Expert;
-use App\ReportedUsers;
+use App\User;
 use Illuminate\Http\Request;
-use TCG\Voyager\Facades\Voyager;
-use Illuminate\Support\Facades\DB;
-use TCG\Voyager\Http\Controllers\VoyagerBreadController;
 
 class HomeController extends Controller {
+
+
+    public function nearestService(Request $request){
+        $latitude = 0.0;
+        $longitude = 0.0;
+        $cities = User::selectRaw('*, ( 6367 * acos( cos( radians( ? ) ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians( ? ) ) + sin( radians( ? ) ) * sin( radians( latitude ) ) ) ) AS distance',
+            [$latitude, $longitude, $latitude])
+            ->orderBy('distance')
+            ->take(10)
+            ->get();
+    }
 
     public function index(Request $request) {
         $latitude = $request->latitude;

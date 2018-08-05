@@ -23,6 +23,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
   |---------------------------------------------------- */
 Route::post('home', 'HomeController@index');
 
+Route::any('logout','AuthController@logout')->middleware('fincoAuth');
+
 /*
   |----------------------------------------------------
   | Auth Routes
@@ -30,6 +32,14 @@ Route::post('home', 'HomeController@index');
 Route::post('login', 'AuthController@login');
 Route::post('logout', 'AuthController@logout');
 Route::post('register', ['uses' => 'AuthController@register']);
+
+Route::group(['middleware' => ['fincoAuth']], function (){
+    Route::post('logout', 'AuthController@logout');
+});
+
+Route::group(['prefix' => '/password/', 'middleware' => ['fincoAuth']], function (){
+   Route::post('change','PasswordController@change');
+});
 
 /*
   |----------------------------------------------------

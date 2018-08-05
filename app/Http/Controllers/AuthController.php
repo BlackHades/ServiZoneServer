@@ -2,16 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use App\Tokens;
-use Hamcrest\Util;
-use Illuminate\Database\QueryException;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Notifications\NewExpertAdmin;
+use App\Tokens;
+use App\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Notification;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller {
@@ -133,18 +130,22 @@ class AuthController extends Controller {
       then returns the generated token */
 
     function storeToken($user_id) {
-        $t = new Tokens();
+        $t = Tokens::where('user_id', $user_id)->first();
+        Log::info('Tokena', [json_encode($t)]);
+        if(!isset($t))
+            $t = new Tokens();
         $t->user_id = $user_id;
         $t->token = $this->generateToken();
         $t->save();
         return $t->token;
     }
 
-    function removeToken(User $user){
-        if(isset($user)){
+    function logout(User $user, Request $request){
+        if(isset($user) && !empty($user)){
             $user->token()->delete();
         }
-        return Utility::returnSuccess('Token Removed Successfully');
+        return Utility::returnSuccess('Sign Out Successful');
+
     }
 
     function generateToken() {
