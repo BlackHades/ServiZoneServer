@@ -17,13 +17,18 @@ class FincoAuth {
      */
     public function handle($request, Closure $next) {
         $token = Tokens::where("token", $request->token)
-                ->where("user_id", $request->user_id)
-                ->get();
+                ->first();
 
-        if (count($token) > 0) {
-            $user = User::where('id', $request->user_id)->first();
-            $request->route()->setParameter('user', $user);
-            return $next($request);
+        if (isset($token)) {
+            $user = $token->user;
+            if(isset($user)){
+                $request->route()->setParameter('user', $user);
+                return $next($request);
+            }else{
+                $status = "error";
+                $message = "User not found";
+                return response()->json(compact('status', 'message'));
+            }
         } else {
             $status = "error";
             $message = "You are not authorized";

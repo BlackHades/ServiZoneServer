@@ -22,4 +22,9 @@ class Tokens extends Model
      *
      * @var array
      */
+
+
+    function user(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }
