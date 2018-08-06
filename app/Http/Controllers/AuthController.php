@@ -67,14 +67,16 @@ class AuthController extends Controller {
     public function register(Request $request) {
         $val = Validator::make($request->all(),[
             'name' => 'required',
-            'age' => 'required',
+            'dob' => 'required',
             'gender' => 'required',
-            'phone_number' => 'required'
+            'phone_number' => 'required',
+            'email' => 'required|unique:users,email'
         ],[
             'name.required' => 'Fullname is required',
-            'age.required' => 'Age is required',
+            'dob.required' => 'Date of Birth is required',
             'gender.required' => 'Gender is required',
-            'phone_number.required' => 'Phone Number is Required'
+            'phone_number.required' => 'Phone Number is Required',
+            'email.required' => "Email Address is required"
         ]);
 
         if($val->fails()){
@@ -82,7 +84,7 @@ class AuthController extends Controller {
         }
         $user = new User();
         $user->name = $request->name;
-        $user->age = $request->age;
+        $user->age = $request->dob;
         $user->gender = $request->gender;
         $user->email = $request->email;
         $user->address = $request->address;

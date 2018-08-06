@@ -33,6 +33,7 @@ Route::post('login', 'AuthController@login');
 Route::post('logout', 'AuthController@logout');
 Route::post('register', ['uses' => 'AuthController@register']);
 
+
 Route::group(['middleware' => ['fincoAuth']], function (){
     Route::post('logout', 'AuthController@logout');
 });
