@@ -80,7 +80,7 @@ class AuthController extends Controller {
         ]);
 
         if($val->fails()){
-            return response()->json(Utility::returnError("Validation Error", $val->errors()->all()));
+            return response()->json(Utility::returnError("Validation Error", implode("\n", $val->errors()->all())));
         }
         $user = new User();
         $user->name = $request->name;
