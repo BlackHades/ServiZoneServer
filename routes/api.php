@@ -41,6 +41,7 @@ Route::group(['prefix' => '/password/', 'middleware' => ['fincoAuth']], function
    Route::post('change','PasswordController@change');
 });
 
+
 /*
   |----------------------------------------------------
   | Profession Routes
