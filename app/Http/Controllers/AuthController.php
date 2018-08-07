@@ -45,7 +45,7 @@ class AuthController extends Controller {
                 return response(Utility::returnError("Your Servizone expert account has not been verified yet.   You'll get an Email with your login details as soon as you have been verified."));
             }
 
-            return response()->json(Utility::returnSuccess("Logged in successfully", "$user"));
+            return response()->json(Utility::returnSuccess("Logged in successfully", $user));
         }
 
         else if (Auth::attempt(['mobile' => $username, 'password' => $password])){
@@ -125,7 +125,7 @@ class AuthController extends Controller {
         $admin = User::where('role_id', 1)->get();
         Notification::send($admin, new NewExpertAdmin($user));
 
-        return response(Utility::returnSuccess('Operation successful',"$user"));
+        return response(Utility::returnSuccess('Operation successful',$user));
     }
 
     /* This method generates and stores the token 
@@ -144,7 +144,7 @@ class AuthController extends Controller {
 
     function logout(User $user, Request $request){
         if(isset($user) && !empty($user)){
-            $user->token()->delete();
+            //$user->token()->delete();
         }
         return Utility::returnSuccess('Sign Out Successful');
 

@@ -10,9 +10,9 @@
 namespace App\Http\Controllers;
 
 use Auth;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Storage;
 
 class Utility {
 
@@ -128,22 +128,22 @@ class Utility {
     /*-----------------------------------
      * @return Success Message
     -----------------------------------*/
-    static function returnSuccess($message = "The operation was successful", $data=null) {
+    static function returnSuccess($message = "The operation was successful", $data="") {
         $msg = [
             'status'=>'success',
             'message'=> $message,
-            'data' => $data];
+            'data' => json_encode($data)];
         return $msg;
     }
 
     /*-----------------------------------
     * @return Error Message
     -----------------------------------*/
-    static function returnError($message = "An error occurred", $data=null) {
+    static function returnError($message = "An error occurred", $data="") {
         $msg = [
             'status'=>'error',
             'message'=> $message,
-            'data' => $data];
+            'data' => json_encode($data)];
         return $msg;
     }
 

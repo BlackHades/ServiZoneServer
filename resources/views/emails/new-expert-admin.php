@@ -96,7 +96,6 @@
                              background: white;
                              ">
                             <div class="content" style="/* box-sizing: border-box; */display: block;Margin: 0 auto;max-width: 580px;border-radius: 200px;/* padding: 10px; */">
-
                                 <!-- START CENTERED WHITE CONTAINER -->
                                 <span class="preheader" style="color: transparent; display: none; height: 0; max-height: 0; max-width: 0; opacity: 0; overflow: hidden; mso-hide: all; visibility: hidden; width: 0;">A new expert just registered.</span>
                                 <div style="
