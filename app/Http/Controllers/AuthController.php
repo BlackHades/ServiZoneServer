@@ -125,7 +125,7 @@ class AuthController extends Controller {
         $admin = User::where('role_id', 1)->get();
         Notification::send($admin, new NewExpertAdmin($user));
 
-        return response(Utility::returnSuccess('Operation successful',$user));
+        return response(Utility::returnSuccess('Registration successful',$user));
     }
 
     /* This method generates and stores the token 
