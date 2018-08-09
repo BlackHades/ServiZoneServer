@@ -69,13 +69,13 @@ class AuthController extends Controller {
             'name' => 'required',
             'dob' => 'required',
             'gender' => 'required',
-            'phone_number' => 'required',
+            'mobile' => 'required',
             'email' => 'required|unique:users,email'
         ],[
             'name.required' => 'Fullname is required',
             'dob.required' => 'Date of Birth is required',
             'gender.required' => 'Gender is required',
-            'phone_number.required' => 'Phone Number is Required',
+            'mobile.required' => 'Mobile Number is Required',
             'email.required' => "Email Address is required"
         ]);
 
@@ -87,30 +87,12 @@ class AuthController extends Controller {
         $user->age = $request->dob;
         $user->gender = $request->gender;
         $user->email = $request->email;
+        $user->mobile = $request->mobile;
         $user->address = $request->address;
         $user->password = bcrypt($request->password);
+        $user->longitude = $request->longitude;
+        $user->latitude = $request->latitude;
         try {
-//            $avatar = $request->input("avatar");
-//            $file = base64_decode($avatar);
-//            $safeName = $user->name . "-" . time() . '.' . 'png';
-//            $destinationPath = storage_path() . "/finco-data/users/";
-//            file_put_contents($destinationPath . $safeName, $file);
-//            if ($avatar === null && $user->type == "expert") {//If no picture uploaded and user is an expert.   Deny entry
-//                return Utility::return405("Please select a valid photo");
-//            } else if ($avatar === null && $user->type == "user") {//If no picture uploaded and user is a user, save default
-//                $user->avatar = "users/default.jpg";
-//            } else {
-//                $user->avatar = "/finco-data/users/" . $safeName;
-//            }
-
-//            if ($user->type == "user") {
-//                //$user->avatar = '';
-//            } else if ($user->type == "expert") {
-//                $user->status = "pending";
-//                $user->about = $request->about;
-//                $user->mobile = $request->mobile;
-//                $user->profession_id = $request->profession_id;
-//            }
             $user->save();
             $user->token = $this->storeToken($user->id);
         }

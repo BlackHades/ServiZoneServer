@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Middleware;
+use App\Http\Controllers\Utility;
+use App\Tokens;
 use Auth;
 use Closure;
-use App\Tokens;
-use App\User;
 
 class FincoAuth {
 
@@ -30,9 +30,8 @@ class FincoAuth {
                 return response()->json(compact('status', 'message'));
             }
         } else {
-            $status = "error";
             $message = "You are not authorized";
-            return response()->json(compact('status', 'message'));
+            return response()->json(Utility::returnUnauthorizedUser($message));
         }
     }
 }

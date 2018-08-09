@@ -135,6 +135,12 @@ class Utility {
             'data' => json_encode($data)];
         return $msg;
     }
+    static function returnUnauthorizedUser($message = "Unathorized User") {
+        $msg = [
+            'status'=>'unauthorised_user',
+            'message'=> $message,];
+        return $msg;
+    }
 
     /*-----------------------------------
     * @return Error Message

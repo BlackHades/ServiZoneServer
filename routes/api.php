@@ -36,6 +36,7 @@ Route::post('register', ['uses' => 'AuthController@register']);
 
 Route::group(['middleware' => ['fincoAuth']], function (){
     Route::post('logout', 'AuthController@logout');
+    Route::post('upload/avatar','Api\UserController@uploadAvatar');
 });
 
 Route::group(['prefix' => '/password/', 'middleware' => ['fincoAuth']], function (){
@@ -83,3 +84,4 @@ Route::group(['prefix' => 'reviews'], function() {
 Route::get('email', function(){
     return view('emails.expert-approved');
 });
+

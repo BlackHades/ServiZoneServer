@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Utility;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use TCG\Voyager\Http\Controllers\Controller;
 
 class UserController extends Controller {
@@ -22,28 +24,43 @@ class UserController extends Controller {
         return redirect()->back();
     }
 
-    public function edit(Request $request) {
-        $user = User::find($request->user_id);
-        $user->name = $request->name;
-        $user->age = $request->age;
-        $user->gender = $request->gender;
-        $user->email = $request->email;
-        $user->address = $request->address;
-        $user->type = $request->type;
-        $user->about = $request->about;
-        $user->mobile = $request->mobile;
-        $user->profession_id = $request->profession_id;
-        $avatar = $request->input("avatar");
+    public function edit(User $user, Request $request) {
+//        $user = User::find($request->user_id);
+        $val = Validator::make($request->all(),[
+            'name' => 'required',
+            'dob' => 'required',
+            'gender' => 'required',
+            'mobile' => 'required',
+        ],[
+            'name.required' => 'Fullname is required',
+            'dob.required' => 'Date of Birth is required',
+            'gender.required' => 'Gender is required',
+            'mobile.required' => 'Mobile Number is Required',
+        ]);
 
-        if ($avatar != null) {
-            $file = base64_decode($avatar);
-            $safeName = $user->name . "-" . time() . '.' . 'png';
-            $destinationPath = storage_path() . "/finco-data/users/";
-            file_put_contents($destinationPath . $safeName, $file);
-            $user->avatar = "/finco-data/users/" . $safeName;
+        if($val->fails()){
+            return response()->json(Utility::returnError("Validation Error", implode(",\n", $val->errors()->all())));
         }
-
+        $user->name = $request->name;
+        $user->age = $request->dob;
+        $user->gender = $request->gender;
+        $user->mobile = $request->mobile;
         $user->save();
-        return response()->json($user);
+        $user->token = $request->token;
+        return response()->json(Utility::returnSuccess("Data Update Successfully", $user));
+    }
+
+    public function uploadAvatar(User $user, Request $request){
+
+        if($request->hasFile('avatar')){
+            $file = $request->file('avatar');
+            $filename = time() . "@$user->email-avatar." .$file->getClientOriginalExtension();
+            $file->move(public_path("uploads/"), $filename);
+            $user->avatar = $filename;
+            $user->save();
+            return Utility::returnSuccess("Image Uploaded Successfully",$filename);
+        }
+        return Utility::returnError("Image Not Found");
+
     }
 }
