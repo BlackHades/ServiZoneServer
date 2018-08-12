@@ -21,28 +21,38 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
   |----------------------------------------------------
   | Home Route
   |---------------------------------------------------- */
-Route::post('home', 'HomeController@index');
-
-Route::any('logout','AuthController@logout')->middleware('fincoAuth');
-
 /*
   |----------------------------------------------------
   | Auth Routes
   |---------------------------------------------------- */
-Route::post('login', 'AuthController@login');
-Route::post('logout', 'AuthController@logout');
-Route::post('register', ['uses' => 'AuthController@register']);
+
+//No Token
 
 
-Route::group(['middleware' => ['fincoAuth']], function (){
-    Route::post('logout', 'AuthController@logout');
-    Route::post('upload/avatar','Api\UserController@uploadAvatar');
+
+Route::group(['prefix' => 'v1/'], function (){
+
+    Route::post('login', 'Api\AuthController@login');
+    Route::post('logout', 'Api\AuthController@logout');
+    Route::post('register', ['uses' => 'Api\AuthController@register']);
+
+    Route::group(['middleware' => ['fincoAuth']], function (){
+        Route::post('home', 'HomeController@index');
+        Route::post('logout', 'Api\AuthController@logout');
+        Route::post('upload/avatar','Api\UserController@uploadAvatar');
+        Route::post('contact-us','Api\ContactController@create');
+
+        Route::group(['prefix' => '/password/'], function (){
+            Route::post('change','Api\PasswordController@change');
+        });
+
+        Route::group(['prefix' => '/service/'], function (){
+            Route::post('create', 'Api\ServiceController@create');
+        });
+    });
+
+
 });
-
-Route::group(['prefix' => '/password/', 'middleware' => ['fincoAuth']], function (){
-   Route::post('change','PasswordController@change');
-});
-
 
 /*
   |----------------------------------------------------

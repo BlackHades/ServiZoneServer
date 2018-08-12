@@ -5,11 +5,10 @@ ini_set('max_execution_time', 3000000); //300 seconds = 5 minutes
 
 include('simple_html_dom.php');
 
-use Storage;
-use App\User;
 use App\Expert;
 use App\ProfileLinks;
-use GuzzleHttp\Client;
+use App\Service;
+use Storage;
 use Sunra\PhpSimple\HtmlDomParser;
 
 class ExpertExtractController extends Controller
@@ -94,17 +93,15 @@ class ExpertExtractController extends Controller
                 /*-------------------------------
                  |REGISTER THE USER
                  |-------------------------------*/
-                $expert = new User();
+                $expert = new Service();
                 $expert->role_id = 2;
                 $expert->avatar = "users/default.jpg";
 //                $expert->avatar = "/finco-data/users/" . $safeName;
                 $expert->name = ltrim($name);
                 $expert->mobile = preg_replace('/\s+/', '', $mobile);
-                $expert->age = preg_replace('/\s+/', '', $age);
                 $expert->profession_id = $link->profession_id;
                 $expert->gender = preg_replace('/\s+/', '', $gender);
                 $expert->about = ltrim($about);
-                $expert->type = "expert";
                 $expert->save();
 
 

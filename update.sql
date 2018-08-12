@@ -6,5 +6,9 @@
 
 --
 
-SHOW INDEX FROM table_name;
-ALTER TABLE `users` DROP INDEX `mobile_2`
+-- SHOW INDEX FROM table_name;
+-- ALTER TABLE `users` DROP INDEX `mobile_2`
+
+
+
+ALTER TABLE `users` DROP `profession_id`, DROP `address`, DROP `type`, DROP `status`;

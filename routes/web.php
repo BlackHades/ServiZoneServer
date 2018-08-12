@@ -21,8 +21,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/user/block/{id}', ['uses' => 'UserController@block']);
     Route::get('/user/unblock/{id}', ['uses' => 'UserController@unblock']);
     Route::get('/expert/block/{id}', ['uses' => 'UserController@block']);
+
     Route::get('/expert/unblock/{id}', ['uses' => 'UserController@unblock']);
-    
     Route::get('/expert/approve/{id}', ['uses' => 'ExpertController@approve']);
 });
 

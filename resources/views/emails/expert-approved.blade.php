@@ -1,4 +1,5 @@
-<html><head>
+<html>
+<head>
         <meta name="viewport" content="width=device-width">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Expert Approved</title>
@@ -120,7 +121,7 @@
 
                                                                 <p style="font-family: sans-serif;font-size: 14px;line-height: 25px;font-weight: normal;color: #aaa;margin: 0;Margin-bottom: 30px;">
                                                                     Here are your account details. <br/><br/>
-                                                                <table
+                                                                <table>
                                                                     <tr>
                                                                         <td width="40%"><strong>Email:</strong></td>
                                                                         <td>{{$user->email}}</td>

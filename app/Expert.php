@@ -6,14 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Expert extends Model {
 
-    protected $table = 'users';
+    protected $table = 'services';
 
-    public function newQuery() {
-        $query = parent::newQuery();
-        $query = $query->where('type', 'expert')
-                ->where('is_blocked', false);
-        return $query;
-    }
+//    public function newQuery() {
+//        $query = parent::newQuery();
+//        $query = $query->where('type', 'expert')
+//                ->where('is_blocked', false);
+//        return $query;
+//    }
     
     public function approve() {
         $this->status = "verified";
