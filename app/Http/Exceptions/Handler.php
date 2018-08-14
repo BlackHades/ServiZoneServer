@@ -2,8 +2,10 @@
 
 namespace App\Exceptions;
 
+use App\Http\Controllers\Utility;
 use Exception;
 use Illuminate\Auth\AuthenticationException;
+use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -44,6 +46,12 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if($request->is('api/*')){
+            if($exception instanceof QueryException || $exception instanceof \PDOException){
+                return Utility::returnError("An Error Occurred");
+            }
+            return Utility::returnError("No Data");
+        }
         return parent::render($request, $exception);
     }
 

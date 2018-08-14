@@ -1,441 +1,50 @@
-[2018-08-10 19:14:39] local.INFO: info ["\"Here\""] 
-[2018-08-10 19:14:59] local.INFO: info ["\"Here\""] 
-[2018-08-10 19:15:01] local.INFO: info ["\"Here\""] 
-[2018-08-10 19:24:25] local.INFO: info ["\"Here\""] 
-[2018-08-10 19:29:53] local.INFO: info ["\"Here\""] 
-[2018-08-10 19:34:43] local.ERROR: ReflectionException: Class App\Http\Controllers\AuthController does not exist in D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\Container.php:729
-Stack trace:
-#0 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\Container.php(729): ReflectionClass->__construct('App\\Http\\Contro...')
-#1 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\Container.php(608): Illuminate\Container\Container->build('App\\Http\\Contro...')
-#2 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\Container.php(575): Illuminate\Container\Container->resolve('App\\Http\\Contro...')
-#3 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(728): Illuminate\Container\Container->make('App\\Http\\Contro...')
-#4 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Route.php(217): Illuminate\Foundation\Application->make('App\\Http\\Contro...')
-#5 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Route.php(747): Illuminate\Routing\Route->getController()
-#6 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Route.php(708): Illuminate\Routing\Route->controllerMiddleware()
-#7 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(585): Illuminate\Routing\Route->gatherMiddleware()
-#8 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(565): Illuminate\Routing\Router->gatherRouteMiddleware(Object(Illuminate\Routing\Route))
-#9 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(533): Illuminate\Routing\Router->runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
-#10 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(511): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
-#11 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(176): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
-#12 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(30): Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
-#13 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(30): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
-#14 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(148): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle(Object(Illuminate\Http\Request), Object(Closure))
-#15 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
-#16 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(30): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
-#17 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(148): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle(Object(Illuminate\Http\Request), Object(Closure))
-#18 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
-#19 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php(27): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
-#20 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(148): Illuminate\Foundation\Http\Middleware\ValidatePostSize->handle(Object(Illuminate\Http\Request), Object(Closure))
-#21 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
-#22 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode.php(46): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
-#23 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(148): Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode->handle(Object(Illuminate\Http\Request), Object(Closure))
-#24 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
-#25 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(102): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
-#26 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(151): Illuminate\Pipeline\Pipeline->then(Object(Closure))
-#27 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
-#28 D:\WorkSpace\Web\servizone\public\index.php(53): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
-#29 D:\WorkSpace\Web\servizone\server.php(21): require_once('D:\\WorkSpace\\We...')
-#30 {main}  
-[2018-08-10 19:36:30] local.ERROR: ReflectionException: Class App\Http\Controllers\AuthController does not exist in D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\Container.php:729
-Stack trace:
-#0 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\Container.php(729): ReflectionClass->__construct('App\\Http\\Contro...')
-#1 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\Container.php(608): Illuminate\Container\Container->build('App\\Http\\Contro...')
-#2 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\Container.php(575): Illuminate\Container\Container->resolve('App\\Http\\Contro...')
-#3 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(728): Illuminate\Container\Container->make('App\\Http\\Contro...')
-#4 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Route.php(217): Illuminate\Foundation\Application->make('App\\Http\\Contro...')
-#5 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Route.php(747): Illuminate\Routing\Route->getController()
-#6 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Route.php(708): Illuminate\Routing\Route->controllerMiddleware()
-#7 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(585): Illuminate\Routing\Route->gatherMiddleware()
-#8 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(565): Illuminate\Routing\Router->gatherRouteMiddleware(Object(Illuminate\Routing\Route))
-#9 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(533): Illuminate\Routing\Router->runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
-#10 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(511): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
-#11 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(176): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
-#12 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(30): Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
-#13 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(30): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
-#14 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(148): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle(Object(Illuminate\Http\Request), Object(Closure))
-#15 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
-#16 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(30): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
-#17 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(148): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle(Object(Illuminate\Http\Request), Object(Closure))
-#18 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
-#19 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php(27): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
-#20 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(148): Illuminate\Foundation\Http\Middleware\ValidatePostSize->handle(Object(Illuminate\Http\Request), Object(Closure))
-#21 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
-#22 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode.php(46): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
-#23 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(148): Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode->handle(Object(Illuminate\Http\Request), Object(Closure))
-#24 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
-#25 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(102): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
-#26 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(151): Illuminate\Pipeline\Pipeline->then(Object(Closure))
-#27 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
-#28 D:\WorkSpace\Web\servizone\public\index.php(53): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
-#29 D:\WorkSpace\Web\servizone\server.php(21): require_once('D:\\WorkSpace\\We...')
-#30 {main}  
-[2018-08-10 19:36:56] local.ERROR: ReflectionException: Class App\Http\Controllers\AuthController does not exist in D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\Container.php:729
-Stack trace:
-#0 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\Container.php(729): ReflectionClass->__construct('App\\Http\\Contro...')
-#1 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\Container.php(608): Illuminate\Container\Container->build('App\\Http\\Contro...')
-#2 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\Container.php(575): Illuminate\Container\Container->resolve('App\\Http\\Contro...')
-#3 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(728): Illuminate\Container\Container->make('App\\Http\\Contro...')
-#4 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Route.php(217): Illuminate\Foundation\Application->make('App\\Http\\Contro...')
-#5 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Route.php(747): Illuminate\Routing\Route->getController()
-#6 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Route.php(708): Illuminate\Routing\Route->controllerMiddleware()
-#7 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(585): Illuminate\Routing\Route->gatherMiddleware()
-#8 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(565): Illuminate\Routing\Router->gatherRouteMiddleware(Object(Illuminate\Routing\Route))
-#9 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(533): Illuminate\Routing\Router->runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
-#10 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(511): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
-#11 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(176): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
-#12 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(30): Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
-#13 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(30): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
-#14 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(148): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle(Object(Illuminate\Http\Request), Object(Closure))
-#15 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
-#16 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php(30): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
-#17 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(148): Illuminate\Foundation\Http\Middleware\TransformsRequest->handle(Object(Illuminate\Http\Request), Object(Closure))
-#18 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
-#19 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php(27): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
-#20 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(148): Illuminate\Foundation\Http\Middleware\ValidatePostSize->handle(Object(Illuminate\Http\Request), Object(Closure))
-#21 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
-#22 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode.php(46): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
-#23 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(148): Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode->handle(Object(Illuminate\Http\Request), Object(Closure))
-#24 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
-#25 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(102): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
-#26 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(151): Illuminate\Pipeline\Pipeline->then(Object(Closure))
-#27 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
-#28 D:\WorkSpace\Web\servizone\public\index.php(53): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
-#29 D:\WorkSpace\Web\servizone\server.php(21): require_once('D:\\WorkSpace\\We...')
-#30 {main}  
-[2018-08-10 19:38:27] local.INFO: Tokena ["{\"id\":12,\"user_id\":100,\"token\":\"x3lLC5d1u36U6Zrc6AaxUt9FmUE4pD8WX6DRYsDpGvj7dHbyvH9EWUpd44u178O2\",\"updated_at\":\"2018-08-09 14:03:41\",\"created_at\":\"2018-08-07 10:40:51\"}"] 
-[2018-08-10 19:38:47] local.INFO: info ["\"Here\""] 
-[2018-08-10 19:43:24] local.INFO: info ["\"Here\""] 
-[2018-08-10 19:43:50] local.INFO: info ["\"Here\""] 
-[2018-08-10 19:44:19] local.INFO: info ["\"Here\""] 
-[2018-08-10 19:44:32] local.INFO: info ["\"Here\""] 
-[2018-08-10 19:46:01] local.INFO: info ["\"Here\""] 
-[2018-08-10 19:55:12] local.INFO: info ["\"Here\""] 
-[2018-08-10 19:55:35] local.INFO: info ["\"Here\""] 
-[2018-08-10 20:06:29] local.INFO: Tokena ["{\"id\":12,\"user_id\":100,\"token\":\"kF7ING1ywy7Jp313qRcYqh6JlVtk5jD1cRKZOJFgmSO4HRLlJtIeHNkdIJfaMzDg\",\"updated_at\":\"2018-08-10 19:38:27\",\"created_at\":\"2018-08-07 10:40:51\"}"] 
-[2018-08-10 20:16:32] local.INFO: Tokena ["{\"id\":12,\"user_id\":100,\"token\":\"BCIfOPRNNaWb9A2PaThVSn83hFZP2G8ptcrgyuADRZ4ozGj1exBnrYZEFSi74vVt\",\"updated_at\":\"2018-08-10 20:06:30\",\"created_at\":\"2018-08-07 10:40:51\"}"] 
-[2018-08-10 20:26:51] local.INFO: info ["\"Here\""] 
-[2018-08-10 20:27:32] local.INFO: info ["\"Here\""] 
-[2018-08-10 20:31:56] local.INFO: info ["\"Here\""] 
-[2018-08-10 22:11:33] local.INFO: info ["\"Here\""] 
-[2018-08-10 22:13:18] local.INFO: info ["\"Here\""] 
-[2018-08-10 22:13:24] local.INFO: info ["\"Here\""] 
-[2018-08-10 22:13:27] local.INFO: info ["\"Here\""] 
-[2018-08-10 22:16:25] local.INFO: info ["\"Here\""] 
-[2018-08-10 22:16:34] local.INFO: info ["\"Here\""] 
-[2018-08-11 12:58:32] local.ERROR: PDOException: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
- in D:\WorkSpace\Web\servizone\vendor\doctrine\dbal\lib\Doctrine\DBAL\Driver\PDOConnection.php:46
-Stack trace:
-#0 D:\WorkSpace\Web\servizone\vendor\doctrine\dbal\lib\Doctrine\DBAL\Driver\PDOConnection.php(46): PDO->__construct('mysql:host=127....', 'root', '', Array)
-#1 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connectors\Connector.php(65): Doctrine\DBAL\Driver\PDOConnection->__construct('mysql:host=127....', 'root', '', Array)
-#2 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connectors\Connector.php(44): Illuminate\Database\Connectors\Connector->createPdoConnection('mysql:host=127....', 'root', '', Array)
-#3 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connectors\MySqlConnector.php(24): Illuminate\Database\Connectors\Connector->createConnection('mysql:host=127....', Array, Array)
-#4 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connectors\ConnectionFactory.php(183): Illuminate\Database\Connectors\MySqlConnector->connect(Array)
-#5 [internal function]: Illuminate\Database\Connectors\ConnectionFactory->Illuminate\Database\Connectors\{closure}()
-#6 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connection.php(883): call_user_func(Object(Closure))
-#7 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connection.php(904): Illuminate\Database\Connection->getPdo()
-#8 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connection.php(392): Illuminate\Database\Connection->getReadPdo()
-#9 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connection.php(318): Illuminate\Database\Connection->getPdoForSelect(true)
-#10 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connection.php(640): Illuminate\Database\Connection->Illuminate\Database\{closure}('select * from `...', Array)
-#11 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connection.php(607): Illuminate\Database\Connection->runQueryCallback('select * from `...', Array, Object(Closure))
-#12 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connection.php(326): Illuminate\Database\Connection->run('select * from `...', Array, Object(Closure))
-#13 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(1705): Illuminate\Database\Connection->select('select * from `...', Array, true)
-#14 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
-#15 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php(462): Illuminate\Database\Query\Builder->get(Array)
-#16 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php(446): Illuminate\Database\Eloquent\Builder->getModels(Array)
-#17 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(347): Illuminate\Database\Eloquent\Builder->get(Array)
-#18 D:\WorkSpace\Web\servizone\vendor\tcg\voyager\routes\voyager.php(34): Illuminate\Database\Eloquent\Model::all()
-#19 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(323): TCG\Voyager\Voyager->{closure}(Object(Illuminate\Routing\Router))
-#20 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(283): Illuminate\Routing\Router->loadRoutes(Object(Closure))
-#21 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(221): Illuminate\Routing\Router->group(Array, Object(Closure))
-#22 D:\WorkSpace\Web\servizone\vendor\tcg\voyager\routes\voyager.php(111): Illuminate\Support\Facades\Facade::__callStatic('group', Array)
-#23 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(323): TCG\Voyager\Voyager->{closure}(Object(Illuminate\Routing\Router))
-#24 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(283): Illuminate\Routing\Router->loadRoutes(Object(Closure))
-#25 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(221): Illuminate\Routing\Router->group(Array, Object(Closure))
-#26 D:\WorkSpace\Web\servizone\vendor\tcg\voyager\routes\voyager.php(112): Illuminate\Support\Facades\Facade::__callStatic('group', Array)
-#27 D:\WorkSpace\Web\servizone\vendor\tcg\voyager\src\Voyager.php(159): require('D:\\WorkSpace\\We...')
-#28 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(221): TCG\Voyager\Voyager->routes()
-#29 D:\WorkSpace\Web\servizone\routes\web.php(20): Illuminate\Support\Facades\Facade::__callStatic('routes', Array)
-#30 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(323): Illuminate\Routing\Router->{closure}(Object(Illuminate\Routing\Router))
-#31 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(283): Illuminate\Routing\Router->loadRoutes(Object(Closure))
-#32 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(221): Illuminate\Routing\Router->group(Array, Object(Closure))
-#33 D:\WorkSpace\Web\servizone\routes\web.php(27): Illuminate\Support\Facades\Facade::__callStatic('group', Array)
-#34 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(327): require('D:\\WorkSpace\\We...')
-#35 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(283): Illuminate\Routing\Router->loadRoutes('D:\\WorkSpace\\We...')
-#36 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\RouteRegistrar.php(104): Illuminate\Routing\Router->group(Array, 'D:\\WorkSpace\\We...')
-#37 D:\WorkSpace\Web\servizone\app\Providers\RouteServiceProvider.php(56): Illuminate\Routing\RouteRegistrar->group('D:\\WorkSpace\\We...')
-#38 D:\WorkSpace\Web\servizone\app\Providers\RouteServiceProvider.php(40): App\Providers\RouteServiceProvider->mapWebRoutes()
-#39 [internal function]: App\Providers\RouteServiceProvider->map()
-#40 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(29): call_user_func_array(Array, Array)
-#41 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
-#42 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Illuminate\Foundation\Application), Array, Object(Closure))
-#43 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\Container.php(539): Illuminate\Container\BoundMethod::call(Object(Illuminate\Foundation\Application), Array, Array, NULL)
-#44 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Support\Providers\RouteServiceProvider.php(74): Illuminate\Container\Container->call(Array)
-#45 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Support\Providers\RouteServiceProvider.php(33): Illuminate\Foundation\Support\Providers\RouteServiceProvider->loadRoutes()
-#46 D:\WorkSpace\Web\servizone\app\Providers\RouteServiceProvider.php(28): Illuminate\Foundation\Support\Providers\RouteServiceProvider->boot()
-#47 [internal function]: App\Providers\RouteServiceProvider->boot()
-#48 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(29): call_user_func_array(Array, Array)
-#49 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
-#50 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Illuminate\Foundation\Application), Array, Object(Closure))
-#51 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\Container.php(539): Illuminate\Container\BoundMethod::call(Object(Illuminate\Foundation\Application), Array, Array, NULL)
-#52 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(788): Illuminate\Container\Container->call(Array)
-#53 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(771): Illuminate\Foundation\Application->bootProvider(Object(App\Providers\RouteServiceProvider))
-#54 [internal function]: Illuminate\Foundation\Application->Illuminate\Foundation\{closure}(Object(App\Providers\RouteServiceProvider), 20)
-#55 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(772): array_walk(Array, Object(Closure))
-#56 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\BootProviders.php(17): Illuminate\Foundation\Application->boot()
-#57 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(208): Illuminate\Foundation\Bootstrap\BootProviders->bootstrap(Object(Illuminate\Foundation\Application))
-#58 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(267): Illuminate\Foundation\Application->bootstrapWith(Array)
-#59 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(114): Illuminate\Foundation\Console\Kernel->bootstrap()
-#60 D:\WorkSpace\Web\servizone\artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
-#61 {main}
-
-Next Doctrine\DBAL\Driver\PDOException: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
- in D:\WorkSpace\Web\servizone\vendor\doctrine\dbal\lib\Doctrine\DBAL\Driver\PDOConnection.php:50
-Stack trace:
-#0 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connectors\Connector.php(65): Doctrine\DBAL\Driver\PDOConnection->__construct('mysql:host=127....', 'root', '', Array)
-#1 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connectors\Connector.php(44): Illuminate\Database\Connectors\Connector->createPdoConnection('mysql:host=127....', 'root', '', Array)
-#2 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connectors\MySqlConnector.php(24): Illuminate\Database\Connectors\Connector->createConnection('mysql:host=127....', Array, Array)
-#3 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connectors\ConnectionFactory.php(183): Illuminate\Database\Connectors\MySqlConnector->connect(Array)
-#4 [internal function]: Illuminate\Database\Connectors\ConnectionFactory->Illuminate\Database\Connectors\{closure}()
-#5 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connection.php(883): call_user_func(Object(Closure))
-#6 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connection.php(904): Illuminate\Database\Connection->getPdo()
-#7 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connection.php(392): Illuminate\Database\Connection->getReadPdo()
-#8 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connection.php(318): Illuminate\Database\Connection->getPdoForSelect(true)
-#9 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connection.php(640): Illuminate\Database\Connection->Illuminate\Database\{closure}('select * from `...', Array)
-#10 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connection.php(607): Illuminate\Database\Connection->runQueryCallback('select * from `...', Array, Object(Closure))
-#11 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connection.php(326): Illuminate\Database\Connection->run('select * from `...', Array, Object(Closure))
-#12 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(1705): Illuminate\Database\Connection->select('select * from `...', Array, true)
-#13 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
-#14 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php(462): Illuminate\Database\Query\Builder->get(Array)
-#15 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php(446): Illuminate\Database\Eloquent\Builder->getModels(Array)
-#16 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(347): Illuminate\Database\Eloquent\Builder->get(Array)
-#17 D:\WorkSpace\Web\servizone\vendor\tcg\voyager\routes\voyager.php(34): Illuminate\Database\Eloquent\Model::all()
-#18 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(323): TCG\Voyager\Voyager->{closure}(Object(Illuminate\Routing\Router))
-#19 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(283): Illuminate\Routing\Router->loadRoutes(Object(Closure))
-#20 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(221): Illuminate\Routing\Router->group(Array, Object(Closure))
-#21 D:\WorkSpace\Web\servizone\vendor\tcg\voyager\routes\voyager.php(111): Illuminate\Support\Facades\Facade::__callStatic('group', Array)
-#22 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(323): TCG\Voyager\Voyager->{closure}(Object(Illuminate\Routing\Router))
-#23 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(283): Illuminate\Routing\Router->loadRoutes(Object(Closure))
-#24 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(221): Illuminate\Routing\Router->group(Array, Object(Closure))
-#25 D:\WorkSpace\Web\servizone\vendor\tcg\voyager\routes\voyager.php(112): Illuminate\Support\Facades\Facade::__callStatic('group', Array)
-#26 D:\WorkSpace\Web\servizone\vendor\tcg\voyager\src\Voyager.php(159): require('D:\\WorkSpace\\We...')
-#27 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(221): TCG\Voyager\Voyager->routes()
-#28 D:\WorkSpace\Web\servizone\routes\web.php(20): Illuminate\Support\Facades\Facade::__callStatic('routes', Array)
-#29 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(323): Illuminate\Routing\Router->{closure}(Object(Illuminate\Routing\Router))
-#30 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(283): Illuminate\Routing\Router->loadRoutes(Object(Closure))
-#31 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(221): Illuminate\Routing\Router->group(Array, Object(Closure))
-#32 D:\WorkSpace\Web\servizone\routes\web.php(27): Illuminate\Support\Facades\Facade::__callStatic('group', Array)
-#33 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(327): require('D:\\WorkSpace\\We...')
-#34 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(283): Illuminate\Routing\Router->loadRoutes('D:\\WorkSpace\\We...')
-#35 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\RouteRegistrar.php(104): Illuminate\Routing\Router->group(Array, 'D:\\WorkSpace\\We...')
-#36 D:\WorkSpace\Web\servizone\app\Providers\RouteServiceProvider.php(56): Illuminate\Routing\RouteRegistrar->group('D:\\WorkSpace\\We...')
-#37 D:\WorkSpace\Web\servizone\app\Providers\RouteServiceProvider.php(40): App\Providers\RouteServiceProvider->mapWebRoutes()
-#38 [internal function]: App\Providers\RouteServiceProvider->map()
-#39 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(29): call_user_func_array(Array, Array)
-#40 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
-#41 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Illuminate\Foundation\Application), Array, Object(Closure))
-#42 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\Container.php(539): Illuminate\Container\BoundMethod::call(Object(Illuminate\Foundation\Application), Array, Array, NULL)
-#43 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Support\Providers\RouteServiceProvider.php(74): Illuminate\Container\Container->call(Array)
-#44 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Support\Providers\RouteServiceProvider.php(33): Illuminate\Foundation\Support\Providers\RouteServiceProvider->loadRoutes()
-#45 D:\WorkSpace\Web\servizone\app\Providers\RouteServiceProvider.php(28): Illuminate\Foundation\Support\Providers\RouteServiceProvider->boot()
-#46 [internal function]: App\Providers\RouteServiceProvider->boot()
-#47 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(29): call_user_func_array(Array, Array)
-#48 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
-#49 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Illuminate\Foundation\Application), Array, Object(Closure))
-#50 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\Container.php(539): Illuminate\Container\BoundMethod::call(Object(Illuminate\Foundation\Application), Array, Array, NULL)
-#51 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(788): Illuminate\Container\Container->call(Array)
-#52 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(771): Illuminate\Foundation\Application->bootProvider(Object(App\Providers\RouteServiceProvider))
-#53 [internal function]: Illuminate\Foundation\Application->Illuminate\Foundation\{closure}(Object(App\Providers\RouteServiceProvider), 20)
-#54 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(772): array_walk(Array, Object(Closure))
-#55 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\BootProviders.php(17): Illuminate\Foundation\Application->boot()
-#56 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(208): Illuminate\Foundation\Bootstrap\BootProviders->bootstrap(Object(Illuminate\Foundation\Application))
-#57 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(267): Illuminate\Foundation\Application->bootstrapWith(Array)
-#58 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(114): Illuminate\Foundation\Console\Kernel->bootstrap()
-#59 D:\WorkSpace\Web\servizone\artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
-#60 {main}  
-[2018-08-11 12:58:33] local.ERROR: PDOException: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
- in D:\WorkSpace\Web\servizone\vendor\doctrine\dbal\lib\Doctrine\DBAL\Driver\PDOConnection.php:46
-Stack trace:
-#0 D:\WorkSpace\Web\servizone\vendor\doctrine\dbal\lib\Doctrine\DBAL\Driver\PDOConnection.php(46): PDO->__construct('mysql:host=127....', 'root', '', Array)
-#1 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connectors\Connector.php(65): Doctrine\DBAL\Driver\PDOConnection->__construct('mysql:host=127....', 'root', '', Array)
-#2 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connectors\Connector.php(44): Illuminate\Database\Connectors\Connector->createPdoConnection('mysql:host=127....', 'root', '', Array)
-#3 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connectors\MySqlConnector.php(24): Illuminate\Database\Connectors\Connector->createConnection('mysql:host=127....', Array, Array)
-#4 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connectors\ConnectionFactory.php(183): Illuminate\Database\Connectors\MySqlConnector->connect(Array)
-#5 [internal function]: Illuminate\Database\Connectors\ConnectionFactory->Illuminate\Database\Connectors\{closure}()
-#6 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connection.php(883): call_user_func(Object(Closure))
-#7 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connection.php(904): Illuminate\Database\Connection->getPdo()
-#8 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connection.php(392): Illuminate\Database\Connection->getReadPdo()
-#9 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connection.php(318): Illuminate\Database\Connection->getPdoForSelect(true)
-#10 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connection.php(640): Illuminate\Database\Connection->Illuminate\Database\{closure}('select * from `...', Array)
-#11 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connection.php(607): Illuminate\Database\Connection->runQueryCallback('select * from `...', Array, Object(Closure))
-#12 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connection.php(326): Illuminate\Database\Connection->run('select * from `...', Array, Object(Closure))
-#13 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(1705): Illuminate\Database\Connection->select('select * from `...', Array, true)
-#14 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
-#15 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php(462): Illuminate\Database\Query\Builder->get(Array)
-#16 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php(446): Illuminate\Database\Eloquent\Builder->getModels(Array)
-#17 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(347): Illuminate\Database\Eloquent\Builder->get(Array)
-#18 D:\WorkSpace\Web\servizone\vendor\tcg\voyager\routes\voyager.php(34): Illuminate\Database\Eloquent\Model::all()
-#19 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(323): TCG\Voyager\Voyager->{closure}(Object(Illuminate\Routing\Router))
-#20 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(283): Illuminate\Routing\Router->loadRoutes(Object(Closure))
-#21 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(221): Illuminate\Routing\Router->group(Array, Object(Closure))
-#22 D:\WorkSpace\Web\servizone\vendor\tcg\voyager\routes\voyager.php(111): Illuminate\Support\Facades\Facade::__callStatic('group', Array)
-#23 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(323): TCG\Voyager\Voyager->{closure}(Object(Illuminate\Routing\Router))
-#24 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(283): Illuminate\Routing\Router->loadRoutes(Object(Closure))
-#25 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(221): Illuminate\Routing\Router->group(Array, Object(Closure))
-#26 D:\WorkSpace\Web\servizone\vendor\tcg\voyager\routes\voyager.php(112): Illuminate\Support\Facades\Facade::__callStatic('group', Array)
-#27 D:\WorkSpace\Web\servizone\vendor\tcg\voyager\src\Voyager.php(159): require('D:\\WorkSpace\\We...')
-#28 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(221): TCG\Voyager\Voyager->routes()
-#29 D:\WorkSpace\Web\servizone\routes\web.php(37): Illuminate\Support\Facades\Facade::__callStatic('routes', Array)
-#30 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(323): Illuminate\Routing\Router->{closure}(Object(Illuminate\Routing\Router))
-#31 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(283): Illuminate\Routing\Router->loadRoutes(Object(Closure))
-#32 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(221): Illuminate\Routing\Router->group(Array, Object(Closure))
-#33 D:\WorkSpace\Web\servizone\routes\web.php(38): Illuminate\Support\Facades\Facade::__callStatic('group', Array)
-#34 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(327): require('D:\\WorkSpace\\We...')
-#35 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(283): Illuminate\Routing\Router->loadRoutes('D:\\WorkSpace\\We...')
-#36 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\RouteRegistrar.php(104): Illuminate\Routing\Router->group(Array, 'D:\\WorkSpace\\We...')
-#37 D:\WorkSpace\Web\servizone\app\Providers\RouteServiceProvider.php(56): Illuminate\Routing\RouteRegistrar->group('D:\\WorkSpace\\We...')
-#38 D:\WorkSpace\Web\servizone\app\Providers\RouteServiceProvider.php(40): App\Providers\RouteServiceProvider->mapWebRoutes()
-#39 [internal function]: App\Providers\RouteServiceProvider->map()
-#40 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(29): call_user_func_array(Array, Array)
-#41 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
-#42 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Illuminate\Foundation\Application), Array, Object(Closure))
-#43 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\Container.php(539): Illuminate\Container\BoundMethod::call(Object(Illuminate\Foundation\Application), Array, Array, NULL)
-#44 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Support\Providers\RouteServiceProvider.php(74): Illuminate\Container\Container->call(Array)
-#45 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Support\Providers\RouteServiceProvider.php(33): Illuminate\Foundation\Support\Providers\RouteServiceProvider->loadRoutes()
-#46 D:\WorkSpace\Web\servizone\app\Providers\RouteServiceProvider.php(28): Illuminate\Foundation\Support\Providers\RouteServiceProvider->boot()
-#47 [internal function]: App\Providers\RouteServiceProvider->boot()
-#48 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(29): call_user_func_array(Array, Array)
-#49 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
-#50 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Illuminate\Foundation\Application), Array, Object(Closure))
-#51 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\Container.php(539): Illuminate\Container\BoundMethod::call(Object(Illuminate\Foundation\Application), Array, Array, NULL)
-#52 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(788): Illuminate\Container\Container->call(Array)
-#53 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(771): Illuminate\Foundation\Application->bootProvider(Object(App\Providers\RouteServiceProvider))
-#54 [internal function]: Illuminate\Foundation\Application->Illuminate\Foundation\{closure}(Object(App\Providers\RouteServiceProvider), 20)
-#55 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(772): array_walk(Array, Object(Closure))
-#56 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\BootProviders.php(17): Illuminate\Foundation\Application->boot()
-#57 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(208): Illuminate\Foundation\Bootstrap\BootProviders->bootstrap(Object(Illuminate\Foundation\Application))
-#58 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(267): Illuminate\Foundation\Application->bootstrapWith(Array)
-#59 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(114): Illuminate\Foundation\Console\Kernel->bootstrap()
-#60 D:\WorkSpace\Web\servizone\artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
-#61 {main}
-
-Next Doctrine\DBAL\Driver\PDOException: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
- in D:\WorkSpace\Web\servizone\vendor\doctrine\dbal\lib\Doctrine\DBAL\Driver\PDOConnection.php:50
-Stack trace:
-#0 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connectors\Connector.php(65): Doctrine\DBAL\Driver\PDOConnection->__construct('mysql:host=127....', 'root', '', Array)
-#1 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connectors\Connector.php(44): Illuminate\Database\Connectors\Connector->createPdoConnection('mysql:host=127....', 'root', '', Array)
-#2 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connectors\MySqlConnector.php(24): Illuminate\Database\Connectors\Connector->createConnection('mysql:host=127....', Array, Array)
-#3 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connectors\ConnectionFactory.php(183): Illuminate\Database\Connectors\MySqlConnector->connect(Array)
-#4 [internal function]: Illuminate\Database\Connectors\ConnectionFactory->Illuminate\Database\Connectors\{closure}()
-#5 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connection.php(883): call_user_func(Object(Closure))
-#6 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connection.php(904): Illuminate\Database\Connection->getPdo()
-#7 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connection.php(392): Illuminate\Database\Connection->getReadPdo()
-#8 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connection.php(318): Illuminate\Database\Connection->getPdoForSelect(true)
-#9 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connection.php(640): Illuminate\Database\Connection->Illuminate\Database\{closure}('select * from `...', Array)
-#10 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connection.php(607): Illuminate\Database\Connection->runQueryCallback('select * from `...', Array, Object(Closure))
-#11 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Connection.php(326): Illuminate\Database\Connection->run('select * from `...', Array, Object(Closure))
-#12 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(1705): Illuminate\Database\Connection->select('select * from `...', Array, true)
-#13 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(1690): Illuminate\Database\Query\Builder->runSelect()
-#14 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php(462): Illuminate\Database\Query\Builder->get(Array)
-#15 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php(446): Illuminate\Database\Eloquent\Builder->getModels(Array)
-#16 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(347): Illuminate\Database\Eloquent\Builder->get(Array)
-#17 D:\WorkSpace\Web\servizone\vendor\tcg\voyager\routes\voyager.php(34): Illuminate\Database\Eloquent\Model::all()
-#18 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(323): TCG\Voyager\Voyager->{closure}(Object(Illuminate\Routing\Router))
-#19 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(283): Illuminate\Routing\Router->loadRoutes(Object(Closure))
-#20 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(221): Illuminate\Routing\Router->group(Array, Object(Closure))
-#21 D:\WorkSpace\Web\servizone\vendor\tcg\voyager\routes\voyager.php(111): Illuminate\Support\Facades\Facade::__callStatic('group', Array)
-#22 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(323): TCG\Voyager\Voyager->{closure}(Object(Illuminate\Routing\Router))
-#23 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(283): Illuminate\Routing\Router->loadRoutes(Object(Closure))
-#24 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(221): Illuminate\Routing\Router->group(Array, Object(Closure))
-#25 D:\WorkSpace\Web\servizone\vendor\tcg\voyager\routes\voyager.php(112): Illuminate\Support\Facades\Facade::__callStatic('group', Array)
-#26 D:\WorkSpace\Web\servizone\vendor\tcg\voyager\src\Voyager.php(159): require('D:\\WorkSpace\\We...')
-#27 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(221): TCG\Voyager\Voyager->routes()
-#28 D:\WorkSpace\Web\servizone\routes\web.php(37): Illuminate\Support\Facades\Facade::__callStatic('routes', Array)
-#29 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(323): Illuminate\Routing\Router->{closure}(Object(Illuminate\Routing\Router))
-#30 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(283): Illuminate\Routing\Router->loadRoutes(Object(Closure))
-#31 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(221): Illuminate\Routing\Router->group(Array, Object(Closure))
-#32 D:\WorkSpace\Web\servizone\routes\web.php(38): Illuminate\Support\Facades\Facade::__callStatic('group', Array)
-#33 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(327): require('D:\\WorkSpace\\We...')
-#34 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(283): Illuminate\Routing\Router->loadRoutes('D:\\WorkSpace\\We...')
-#35 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\RouteRegistrar.php(104): Illuminate\Routing\Router->group(Array, 'D:\\WorkSpace\\We...')
-#36 D:\WorkSpace\Web\servizone\app\Providers\RouteServiceProvider.php(56): Illuminate\Routing\RouteRegistrar->group('D:\\WorkSpace\\We...')
-#37 D:\WorkSpace\Web\servizone\app\Providers\RouteServiceProvider.php(40): App\Providers\RouteServiceProvider->mapWebRoutes()
-#38 [internal function]: App\Providers\RouteServiceProvider->map()
-#39 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(29): call_user_func_array(Array, Array)
-#40 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
-#41 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Illuminate\Foundation\Application), Array, Object(Closure))
-#42 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\Container.php(539): Illuminate\Container\BoundMethod::call(Object(Illuminate\Foundation\Application), Array, Array, NULL)
-#43 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Support\Providers\RouteServiceProvider.php(74): Illuminate\Container\Container->call(Array)
-#44 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Support\Providers\RouteServiceProvider.php(33): Illuminate\Foundation\Support\Providers\RouteServiceProvider->loadRoutes()
-#45 D:\WorkSpace\Web\servizone\app\Providers\RouteServiceProvider.php(28): Illuminate\Foundation\Support\Providers\RouteServiceProvider->boot()
-#46 [internal function]: App\Providers\RouteServiceProvider->boot()
-#47 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(29): call_user_func_array(Array, Array)
-#48 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
-#49 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Illuminate\Foundation\Application), Array, Object(Closure))
-#50 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\Container.php(539): Illuminate\Container\BoundMethod::call(Object(Illuminate\Foundation\Application), Array, Array, NULL)
-#51 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(788): Illuminate\Container\Container->call(Array)
-#52 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(771): Illuminate\Foundation\Application->bootProvider(Object(App\Providers\RouteServiceProvider))
-#53 [internal function]: Illuminate\Foundation\Application->Illuminate\Foundation\{closure}(Object(App\Providers\RouteServiceProvider), 20)
-#54 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(772): array_walk(Array, Object(Closure))
-#55 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\BootProviders.php(17): Illuminate\Foundation\Application->boot()
-#56 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(208): Illuminate\Foundation\Bootstrap\BootProviders->bootstrap(Object(Illuminate\Foundation\Application))
-#57 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(267): Illuminate\Foundation\Application->bootstrapWith(Array)
-#58 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(114): Illuminate\Foundation\Console\Kernel->bootstrap()
-#59 D:\WorkSpace\Web\servizone\artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
-#60 {main}  
-[2018-08-11 13:09:06] local.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Parse error: syntax error, unexpected 'Route' (T_STRING) in D:\WorkSpace\Web\servizone\routes\api.php:45
-Stack trace:
-#0 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\Router.php(283): Illuminate\Routing\Router->loadRoutes('D:\\WorkSpace\\We...')
-#1 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Routing\RouteRegistrar.php(104): Illuminate\Routing\Router->group(Array, 'D:\\WorkSpace\\We...')
-#2 D:\WorkSpace\Web\servizone\app\Providers\RouteServiceProvider.php(71): Illuminate\Routing\RouteRegistrar->group('D:\\WorkSpace\\We...')
-#3 D:\WorkSpace\Web\servizone\app\Providers\RouteServiceProvider.php(38): App\Providers\RouteServiceProvider->mapApiRoutes()
-#4 [internal function]: App\Providers\RouteServiceProvider->map()
-#5 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(29): call_user_func_array(Array, Array)
-#6 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
-#7 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Illuminate\Foundation\Application), Array, Object(Closure))
-#8 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\Container.php(539): Illuminate\Container\BoundMethod::call(Object(Illuminate\Foundation\Application), Array, Array, NULL)
-#9 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Support\Providers\RouteServiceProvider.php(74): Illuminate\Container\Container->call(Array)
-#10 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Support\Providers\RouteServiceProvider.php(33): Illuminate\Foundation\Support\Providers\RouteServiceProvider->loadRoutes()
-#11 D:\WorkSpace\Web\servizone\app\Providers\RouteServiceProvider.php(28): Illuminate\Foundation\Support\Providers\RouteServiceProvider->boot()
-#12 [internal function]: App\Providers\RouteServiceProvider->boot()
-#13 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(29): call_user_func_array(Array, Array)
-#14 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
-#15 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Illuminate\Foundation\Application), Array, Object(Closure))
-#16 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Container\Container.php(539): Illuminate\Container\BoundMethod::call(Object(Illuminate\Foundation\Application), Array, Array, NULL)
-#17 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(788): Illuminate\Container\Container->call(Array)
-#18 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(771): Illuminate\Foundation\Application->bootProvider(Object(App\Providers\RouteServiceProvider))
-#19 [internal function]: Illuminate\Foundation\Application->Illuminate\Foundation\{closure}(Object(App\Providers\RouteServiceProvider), 20)
-#20 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(772): array_walk(Array, Object(Closure))
-#21 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\BootProviders.php(17): Illuminate\Foundation\Application->boot()
-#22 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(208): Illuminate\Foundation\Bootstrap\BootProviders->bootstrap(Object(Illuminate\Foundation\Application))
-#23 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(267): Illuminate\Foundation\Application->bootstrapWith(Array)
-#24 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(114): Illuminate\Foundation\Console\Kernel->bootstrap()
-#25 D:\WorkSpace\Web\servizone\artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
-#26 {main}  
-[2018-08-11 13:09:14] local.ERROR: Symfony\Component\Console\Exception\CommandNotFoundException: Command "make:coontroller" is not defined.
-
-Did you mean one of these?
-    make:auth
-    make:command
-    make:controller
-    make:event
-    make:job
-    make:listener
-    make:mail
-    make:middleware
-    make:migration
-    make:model
-    make:notification
-    make:policy
-    make:provider
-    make:request
-    make:seeder
-    make:test
-    make:widget
-    voyager:controllers in D:\WorkSpace\Web\servizone\vendor\symfony\console\Application.php:618
-Stack trace:
-#0 D:\WorkSpace\Web\servizone\vendor\symfony\console\Application.php(229): Symfony\Component\Console\Application->find('make:coontrolle...')
-#1 D:\WorkSpace\Web\servizone\vendor\symfony\console\Application.php(148): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
-#2 D:\WorkSpace\Web\servizone\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(122): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
-#3 D:\WorkSpace\Web\servizone\artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
-#4 {main}  
-[2018-08-11 13:39:18] local.INFO: info ["\"Here\""] 
+[2018-08-13 08:49:18] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 08:50:28] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 08:50:39] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 08:53:48] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 08:54:01] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 08:54:06] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 08:55:08] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 08:59:40] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 09:01:10] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 09:03:57] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 09:06:54] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 09:07:36] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 09:10:25] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 09:12:31] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 09:13:51] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 09:15:33] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 11:42:51] local.INFO: Tokena ["{\"id\":12,\"user_id\":100,\"token\":\"gWLzKwxLbCb1eAteB4ZmSK6thcGn7YCup1DMEj3A7I4AV1pxe2x9QWghoCABpLAS\",\"updated_at\":\"2018-08-13 08:43:34\",\"created_at\":\"2018-08-07 10:40:51\"}"] 
+[2018-08-13 11:43:21] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 11:48:05] local.INFO: Tokena ["{\"id\":12,\"user_id\":100,\"token\":\"7NbJBgJSzxb5Tw4ocBp1dkHw5YkumezskLYLt0OxSxIebB9xqtRfZzUsbqXS7WrK\",\"updated_at\":\"2018-08-13 11:42:52\",\"created_at\":\"2018-08-07 10:40:51\"}"] 
+[2018-08-13 11:48:25] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 11:51:21] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 12:04:49] local.INFO: Tokena ["{\"id\":12,\"user_id\":100,\"token\":\"uPoa0oxyul9tbN9nmB5SqxKf1fEGkx7nKmI4cyXUBljfosFLalpqegFb9FdwrXZd\",\"updated_at\":\"2018-08-13 11:48:05\",\"created_at\":\"2018-08-07 10:40:51\"}"] 
+[2018-08-13 12:05:26] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 12:06:18] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 12:06:40] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 12:06:56] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 12:09:17] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 12:09:27] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 12:09:47] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 12:10:14] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 12:10:24] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 12:17:13] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 12:17:16] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 12:17:27] local.INFO: info ["\"Here\""] 
+[2018-08-13 12:17:32] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 12:19:39] local.INFO: info ["\"Here\""] 
+[2018-08-13 12:19:49] local.INFO: info ["\"Here\""] 
+[2018-08-13 12:20:00] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 12:26:37] local.INFO: Tokena ["{\"id\":12,\"user_id\":100,\"token\":\"lYSDHCrNMCm6FDyYs1LC3017cAKKMuYmDuD5Bygx7bAQyW86jJgnu1Gom5L4x1rY\",\"updated_at\":\"2018-08-13 12:04:49\",\"created_at\":\"2018-08-07 10:40:51\"}"] 
+[2018-08-13 12:26:45] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 12:31:53] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 12:33:25] local.INFO: info ["\"Here\""] 
+[2018-08-13 12:33:30] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 12:44:28] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 12:47:06] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 12:51:12] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 12:53:17] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 12:54:14] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 12:54:54] local.INFO: Here ["[object] (App\\User: {\"id\":100,\"role_id\":2,\"avatar\":\"1533822645@user@user.com-avatar.jpg\",\"name\":\"user user\",\"age\":\"09/08/90\",\"gender\":\"Female\",\"mobile\":\"07038102474\",\"about\":\"sdsfdgfgdzxcdvf\",\"email\":\"user@user.com\",\"longitude\":\"0.0\",\"latitude\":\"0.0\",\"is_blocked\":\"0\",\"updated_at\":\"2018-08-09 13:50:45\",\"created_at\":\"2017-12-14 20:31:18\"})"] 
+[2018-08-13 16:06:49] local.INFO: Tokena ["{\"id\":12,\"user_id\":100,\"token\":\"SD1lPEXz2HE8yBGiA0bUKFxIVMbq3eewU7hynTcSnfvNh6pMxo1g8boNh2z71Mfh\",\"updated_at\":\"2018-08-13 12:26:37\",\"created_at\":\"2018-08-07 10:40:51\"}"] 

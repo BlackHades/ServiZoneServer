@@ -14,7 +14,8 @@ class PasswordController extends Controller
     function change(Request $request, User $user){
         $val = Validator::make($request->all(),[
             'current_password' => 'required',
-            'new_password' => 'required'
+            'new_password' => 'required',
+            'noToken' => 'required'
         ]);
         if($val->fails())
             return response()->json(Utility::returnError("Validation Error", implode("\n", $val->errors()->all())));

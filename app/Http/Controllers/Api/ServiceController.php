@@ -9,6 +9,7 @@ use App\Mail\ServiceVerification;
 use App\Service;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
@@ -62,5 +63,19 @@ class ServiceController extends Controller
         }else{
             return response()->json(Utility::returnError("User Not Found"));
         }
+    }
+
+
+    public function getByUserId(User $user){
+        Log::info("Here",[$user]);
+        $services = Service::where('user_id', $user->id)->orderBy('id','DESC')->get();
+//        foreach ($services as $service){
+//            $services->profession = $service->profession->profession;
+//        }
+
+        for($i = 0; $i < count($services); $i++){
+            $services[$i]->profession = $services[$i]->getProfession->profession;
+        }
+        return Utility::returnSuccess("Success", $services);
     }
 }

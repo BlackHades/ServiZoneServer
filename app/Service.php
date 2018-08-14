@@ -11,6 +11,9 @@ class Service extends Model
 
     protected $table = "services";
     protected $dates = ['deleted_at'];
+//    protected $hidden = [
+//        'is_blocked',
+//    ];
 
 
 
@@ -20,7 +23,7 @@ class Service extends Model
         return "This Services has been approved";
     }
 
-    public function profession(){
+    public function getProfession(){
         return $this->belongsTo(Profession::class, 'profession_id');
     }
 
