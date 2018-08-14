@@ -28,4 +28,8 @@ class PasswordController extends Controller
             return response()->json(Utility::returnError("Validation Error", "Current Password is incorrect"));
         }
     }
+
+    function forgot(Request $request){
+
+    }
 }

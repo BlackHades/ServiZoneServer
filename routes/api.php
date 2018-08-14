@@ -53,7 +53,7 @@ Route::group(['prefix' => 'v1/'], function (){
 
 
         Route::group(['prefix' => '/profession/'], function (){
-            Route::post('all', 'Api\ProfessionController@all');
+            Route::get('all', 'Api\ProfessionController@all');
             Route::post('user','Api\ServiceController@getByUserId');
         });
     });
