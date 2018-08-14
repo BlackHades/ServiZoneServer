@@ -50,7 +50,6 @@ class Handler extends ExceptionHandler
             if($exception instanceof QueryException || $exception instanceof \PDOException){
                 return Utility::returnError("An Error Occurred");
             }
-            return Utility::returnError("No Data");
         }
         return parent::render($request, $exception);
     }

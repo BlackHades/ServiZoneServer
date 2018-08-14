@@ -49,3 +49,7 @@ Route::get('clear', function (){
    \Illuminate\Support\Facades\Artisan::call('view:clear');
    dd('done');
 });
+
+Route::get('email', function(){
+    return view('emails.new-expert-admin');
+});

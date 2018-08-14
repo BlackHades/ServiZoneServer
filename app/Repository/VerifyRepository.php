@@ -16,4 +16,8 @@ class VerifyRepository
     function getByEmail($email){
         return ServiceVerification::where('email', $email)->first();
     }
+
+    function getByEmailAndToken($email, $code){
+        return ServiceVerification::where(['email' =>  $email, 'code' => $code])->first();
+    }
 }

@@ -44,6 +44,7 @@ Route::group(['prefix' => 'v1/'], function (){
 
         Route::group(['prefix' => '/password/'], function (){
             Route::post('change','Api\PasswordController@change');
+            Route::post('change/new','Api\PasswordController@changeNoToken');
         });
 
         Route::group(['prefix' => '/service/'], function (){
@@ -52,26 +53,28 @@ Route::group(['prefix' => 'v1/'], function (){
         });
 
 
-        Route::group(['prefix' => '/profession/'], function (){
-            Route::get('all', 'Api\ProfessionController@all');
-            Route::post('user','Api\ServiceController@getByUserId');
-        });
+        
     });
 
+    Route::group(['prefix' => '/password/'], function (){
+        Route::post('forgot','Api\PasswordController@forgot');
+    });
+       
+    Route::group(['prefix' => '/profession/'], function (){
+        Route::get('all', 'Api\ProfessionController@all');
+        Route::post('user','Api\ServiceController@getByUserId');
+    });
 
+    Route::post('verify/token', 'Api\VerificationController@token');
 });
 
 /*
   |----------------------------------------------------
   | Profession Routes
   |---------------------------------------------------- */
-Route::group(['prefix' => 'professions'], function() {
-    Route::post('', array('uses' => 'ProfessionController@index'));
-    Route::post('search', 'ProfessionController@search');
-});
-
-/*
-  |----------------------------------------------------
+ 
+ 
+ /* |----------------------------------------------------
   | Experts Routes
   |---------------------------------------------------- */
 Route::post('search', 'ExpertController@search');
