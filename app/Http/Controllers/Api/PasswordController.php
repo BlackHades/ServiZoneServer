@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Helper\Verification;
+use App\Helper\WebConstant;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Utility;
 use App\Repository\UserRepository;
@@ -88,9 +89,11 @@ class PasswordController extends Controller
         $beautymail->send('emails.code', $data, function($message) use($user)
         {
             $message
-                ->from("Michealakinwonmi@gmail.com")
+                ->from(WebConstant::$DO_NOT_REPLY_MAIL)
                 ->to($user->email, explode(' ', $user->name)[0])
                 ->subject('Verification');
         });
+        Log::info("Sent", [$data]);
+
     }
 }

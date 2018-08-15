@@ -3,15 +3,16 @@
 namespace App\Http\Controllers\Api;
 
 use App\Helper\Verification;
+use App\Helper\WebConstant;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Utility;
-use App\Mail\ServiceVerification;
 use App\Service;
+use App\ServiceVerification;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+use Snowfire\Beautymail\Beautymail;
 
 class ServiceController extends Controller
 {
@@ -52,10 +53,11 @@ class ServiceController extends Controller
             $s->mobile = $request->mobile;
             $s->latitude =$request->latitude;
             $s->longitude = $request->longitude;
-            if($s->save()){
-//            if(true){
+//            if($s->save()){
+            if(true){
                 $verify = (new Verification())->tokenize($s->email);
-                Mail::to($s->email)->send(new ServiceVerification($verify));
+//                Mail::to($s->email)->send(new ServiceVerification($verify));
+                $this->sendMail($s, $verify);
                 return response()->json(Utility::returnSuccess("Service Successfully Registered", $s));
             }else{
                 return response()->json(Utility::returnError("Could not register service at this time. Try Again"));
@@ -77,5 +79,23 @@ class ServiceController extends Controller
             $services[$i]->profession = $services[$i]->getProfession->profession;
         }
         return Utility::returnSuccess("Success", $services);
+    }
+
+
+    private function sendMail(Service $service, ServiceVerification $verify){
+        $data = [];
+        $data['name'] = $service->name;
+        $data['code'] = $verify->code;
+        Log::info("Mailer", [$data]);
+        $beautymail = app()->make(Beautymail::class);
+        $beautymail->send('emails.code', $data, function($message) use($service)
+        {
+            $message
+                ->from(WebConstant::$DO_NOT_REPLY_MAIL)
+                ->to($service->email, $service->name)
+                ->subject('Service Email Verification');
+        });
+        Log::info("Sent", [$data]);
+
     }
 }

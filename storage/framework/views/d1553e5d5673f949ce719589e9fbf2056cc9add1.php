@@ -3,7 +3,7 @@
     <?php echo $__env->make('beautymail::templates.widgets.newfeatureStart', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
     <p class="secondary"><strong>Hello <?php echo e(isset($name) ? $name : "User"); ?>, </strong></p>
-    <p>Kindly use the code <?php echo e(isset($code) ? $code : "Code"); ?> for your verification. It expires in 30 minutes.</p>
+    <p>Kindly use the code: <b><strong><?php echo e(isset($code) ? $code : "Code"); ?> </strong></b> for your verification. It expires in 30 minutes.</p>
     <p>Thank You.</p>
     <p>Powered By OneflareTech.</p>
 
