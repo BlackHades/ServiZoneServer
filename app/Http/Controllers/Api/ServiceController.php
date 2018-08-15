@@ -18,7 +18,7 @@ class ServiceController extends Controller
     public function create(Request $request, User $user){
         $val = Validator::make($request->all(),[
             'name' => 'required',
-            'email' => 'required',
+            'email' => 'required|email',
             'address' => 'required',
             'profession_id' => 'required|exists:professions,id',
             'mobile' => 'required',

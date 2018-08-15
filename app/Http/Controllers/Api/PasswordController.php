@@ -5,13 +5,22 @@ namespace App\Http\Controllers\Api;
 use App\Helper\Verification;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Utility;
+use App\Repository\UserRepository;
+use App\ServiceVerification;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Snowfire\Beautymail\Beautymail;
 
 class PasswordController extends Controller
 {
+    private  $users;
+    public function __construct(UserRepository $users)
+    {
+        $this->users = $users;
+    }
+
     function change(Request $request, User $user){
         $val = Validator::make($request->all(),[
             'current_password' => 'required',
@@ -57,8 +66,19 @@ class PasswordController extends Controller
             return response()->json(Utility::returnError(implode("\n", $val->errors()->all()), implode("\n", $val->errors()->all())));
 
         $val = (new Verification())->tokenize($request->email);
-        //Send Verification to User
+        $this->sendMail($this->users->getByEmail($request->email), $val);
         return response()->json(Utility::returnSuccess("A Verification Code Has been sent to you email", $val));
 
+    }
+
+    private function sendMail(User $user, ServiceVerification $verify){
+        $beautymail = app()->make(Beautymail::class);
+        $beautymail->send('emails.welcome', [], function($message, $user)
+        {
+            $message
+                ->from('do-not-reply@kiakia.com')
+                ->to($user->email, $user->name)
+                ->subject('Verification');
+        });
     }
 }

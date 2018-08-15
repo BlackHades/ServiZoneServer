@@ -51,5 +51,14 @@ Route::get('clear', function (){
 });
 
 Route::get('email', function(){
-    return view('emails.new-expert-admin');
+//    $beautymail = app()->make(Snowfire\Beautymail\Beautymail::class);
+//    $beautymail->send('emails.welcome', [], function($message)
+//    {
+//        $message
+//            ->from('bar@example.com')
+//            ->to('foo@example.com', 'John Smith')
+//            ->subject('Welcome!');
+//    });
+    return view('emails.welcome');
+
 });
