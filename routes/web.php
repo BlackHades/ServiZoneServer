@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Support\Collection;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -40,7 +42,10 @@ Route::group(['prefix' => 'admin'], function () {
 
 
 Route::get('test', function (){
-   dd(\App\User::latest()->first());
+    $data = new Collection();
+    $data->name = "Name";
+    $data->code = "Cide";
+   dd($data, $data->name);
 });
 
 Route::get('clear', function (){

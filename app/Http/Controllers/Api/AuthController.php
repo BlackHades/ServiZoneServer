@@ -90,7 +90,7 @@ class AuthController extends Controller {
         $user->gender = $request->gender;
         $user->email = $request->email;
         $user->mobile = $request->mobile;
-        $user->address = $request->address;
+//        $user->address = $request->address;
         $user->password = bcrypt($request->password);
         $user->longitude = $request->longitude;
         $user->latitude = $request->latitude;

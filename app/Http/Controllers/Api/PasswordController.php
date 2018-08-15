@@ -10,8 +10,11 @@ use App\ServiceVerification;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Snowfire\Beautymail\Beautymail;
+
+//use Snowfire\Beautymail\Beautymail;
 
 class PasswordController extends Controller
 {
@@ -66,18 +69,27 @@ class PasswordController extends Controller
             return response()->json(Utility::returnError(implode("\n", $val->errors()->all()), implode("\n", $val->errors()->all())));
 
         $val = (new Verification())->tokenize($request->email);
-        $this->sendMail($this->users->getByEmail($request->email), $val);
+        try{
+            $this->sendMail($this->users->getByEmail($request->email), $val);
+        }
+        catch (\Exception $exception){
+            return response()->json($exception);
+        }
         return response()->json(Utility::returnSuccess("A Verification Code Has been sent to you email", $val));
 
     }
 
     private function sendMail(User $user, ServiceVerification $verify){
+        $data = [];
+        $data['name'] = $user->name;
+        $data['code'] = $verify->code;
+        Log::info("Mailer", [$data]);
         $beautymail = app()->make(Beautymail::class);
-        $beautymail->send('emails.welcome', [], function($message, $user)
+        $beautymail->send('emails.code', $data, function($message) use($user)
         {
             $message
-                ->from('do-not-reply@kiakia.com')
-                ->to($user->email, $user->name)
+                ->from("Michealakinwonmi@gmail.com")
+                ->to($user->email, explode(' ', $user->name)[0])
                 ->subject('Verification');
         });
     }
