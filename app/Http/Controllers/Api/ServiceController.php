@@ -53,8 +53,8 @@ class ServiceController extends Controller
             $s->mobile = $request->mobile;
             $s->latitude =$request->latitude;
             $s->longitude = $request->longitude;
-//            if($s->save()){
-            if(true){
+            if($s->save()){
+//            if(true){
                 $verify = (new Verification())->tokenize($s->email);
 //                Mail::to($s->email)->send(new ServiceVerification($verify));
                 $this->sendMail($s, $verify);
@@ -66,8 +66,6 @@ class ServiceController extends Controller
             return response()->json(Utility::returnError("User Not Found"));
         }
     }
-
-
     public function getByUserId(User $user){
         Log::info("Here",[$user]);
         $services = Service::where('user_id', $user->id)->orderBy('id','DESC')->get();
@@ -80,8 +78,6 @@ class ServiceController extends Controller
         }
         return Utility::returnSuccess("Success", $services);
     }
-
-
     private function sendMail(Service $service, ServiceVerification $verify){
         $data = [];
         $data['name'] = $service->name;

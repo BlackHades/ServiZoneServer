@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
 use App\Expert;
 use App\ReportedUsers;
+use App\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Notifications\ExpertApproved;
-use Illuminate\Support\Facades\Notification;
 use TCG\Voyager\Http\Controllers\VoyagerBreadController;
 
 class ExpertController extends VoyagerBreadController {
@@ -64,15 +62,11 @@ class ExpertController extends VoyagerBreadController {
     }
 
     public function approve($id) {
-        $user = User::where('id', $id)
-                ->first();
-        $password = Utility::generateRsandomChar(6);
-        $encrypted = bcrypt($password);
-        $user->status = "verified";
-        $user->password = $encrypted;
-        $user->save();
-        Notification::send($user, new ExpertApproved($password));
-        return redirect()->back();
+        $ser = Service::find($id);
+        $ser->verified = true;
+        $ser->save();
+//        Notification::send($user, new ExpertApproved($password));
+        return redirect()->route('voyager.dashboard');
     }
 
 }
