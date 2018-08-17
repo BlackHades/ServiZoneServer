@@ -52,9 +52,21 @@ Route::group(['prefix' => 'v1/'], function (){
             Route::post('user','Api\ServiceController@getByUserId');
         });
 
+        /*
+|----------------------------------------------------
+| Users Routes
+|---------------------------------------------------- */
+        Route::group(['prefix' => 'users'], function() {
+            Route::post('edit', 'Api\UserController@edit');
+            Route::post('search', 'UserController@index');
+            Route::post('search', 'UserController@search');
+            Route::post('logout','AuthController@removeToken');
+        });
 
         
     });
+
+
 
     Route::group(['prefix' => '/password/'], function (){
         Route::post('forgot','Api\PasswordController@forgot');
@@ -80,16 +92,7 @@ Route::group(['prefix' => 'v1/'], function (){
 Route::post('search', 'ExpertController@search');
 Route::post('experts/report', 'ExpertController@report')->middleware('fincoAuth');
 
-/*
-  |----------------------------------------------------
-  | Users Routes
-  |---------------------------------------------------- */
-Route::group(['middleware' => ['fincoAuth'], 'prefix' => 'users'], function() {
-    Route::post('edit', 'Api\UserController@edit');
-    Route::post('search', 'UserController@index');
-    Route::post('search', 'UserController@search');
-    Route::post('logout','AuthController@removeToken');
-});
+
 
 
 /*
