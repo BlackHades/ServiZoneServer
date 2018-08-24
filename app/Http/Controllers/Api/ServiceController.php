@@ -105,7 +105,7 @@ class ServiceController extends Controller
             return response()->json(Utility::returnError("Validation Error", implode("\n", $val->errors()->all())));
         }
         $service = Service::find($request->service);
-        if (!$user->can('update', $service))
+        if ($user->id != $service->user_id)
             return response()->json(Utility::returnError("You are not authorised to edit service"));
 
         $service->profession_id = $request->profession_id;
@@ -140,7 +140,7 @@ class ServiceController extends Controller
         }
 
         $service = Service::find($request->service);
-        if (!$user->can('update', $service))
+        if ($user->id != $service->user_id)
             return response()->json(Utility::returnError("You are not authorised to edit service"));
         $service->address = $request->address;
         $service->latitude = $request->latitude;
@@ -171,7 +171,7 @@ class ServiceController extends Controller
 
         if ($request->hasFile('avatar')) {
             $service = Service::find($request->service);
-            if (!$user->can('update', $service))
+            if ($user->id != $service->user_id)
                 return response()->json(Utility::returnError("You are not authorised to edit service"));
             $file = $request->file('avatar');
             $filename = time() . "@$service->email-avatar." . $file->getClientOriginalExtension();
@@ -199,7 +199,7 @@ class ServiceController extends Controller
         }
 
         $service = Service::find($request->service);
-        if (!$user->can('delete', $service))
+        if ($user->id != $service->user_id)
             return response()->json(Utility::returnError("You are not authorised to edit service"));
 
         try {
