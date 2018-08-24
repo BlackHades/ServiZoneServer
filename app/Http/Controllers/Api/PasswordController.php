@@ -76,7 +76,7 @@ class PasswordController extends Controller
         catch (\Exception $exception){
             return response()->json($exception);
         }
-        return response()->json(Utility::returnSuccess("A Verification Code Has been sent to you email", $val));
+        return response()->json(Utility::returnSuccess("A Verification Code Has been sent to your email", $val));
 
     }
 

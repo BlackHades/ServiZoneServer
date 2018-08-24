@@ -6,7 +6,6 @@ use App\Expert;
 use App\Service;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 
 class HomeController extends Controller {
 
@@ -39,14 +38,18 @@ class HomeController extends Controller {
             ->take(15)
             ->orderBy('id', 'desc')
             ->get();
-        foreach ($closest_experts as $expert) {
-            $expert->averageRating = $expert->reviews()->avg('rating');
-        }
-
-        if(count($closest_experts) < 15){
+        if (count($closest_experts) < 15) {
             $other_close = Service::inRandomOrder()->take(15 - count($closest_experts))->get();
             $closest_experts = $closest_experts->merge($other_close);
         }
+
+
+        foreach ($closest_experts as $expert) {
+            $expert->profession = $expert->getProfession->profession;
+            $expert->review = count($expert->reviews) == 0 ? 0 : $expert->reviews()->avg('rating');
+        }
+
+
 
         //By Ratings
 //        $top_experts = Expert::select('users.id', 'avatar', 'users.name', 'age', 'gender', 'mobile', 'profession', 'email', 'address', 'about')
@@ -61,14 +64,17 @@ class HomeController extends Controller {
             ->take(15)
             ->inRandomOrder()
             ->get();
-        foreach ($top_experts as $expert) {
-            $expert->averageRating = $expert->reviews()->avg('rating');
-        }
 
-        if(count($top_experts) < 15){
+        if (count($top_experts) < 15) {
             $other_close = Service::inRandomOrder()->take(15 - count($top_experts))->get();
             $top_experts = $top_experts->merge($other_close);
         }
+        foreach ($top_experts as $expert) {
+            $expert->profession = $expert->getProfession->profession;
+            $expert->review = count($expert->reviews) == 0 ? 0 : $expert->reviews()->avg('rating');
+        }
+
+
 
 
 
@@ -85,16 +91,16 @@ class HomeController extends Controller {
             ->take(15)
             ->inRandomOrder()
             ->get();
-        foreach ($featured_experts as $expert) {
-            $expert->averageRating = $expert->reviews()->avg('rating');
-        }
 
-        if(count($featured_experts) < 15){
+        if (count($featured_experts) < 15) {
             $other_close = Service::inRandomOrder()->take(15 - count($featured_experts))->get();
-            $closest_experts = $closest_experts->merge($other_close);
+            $featured_experts = $featured_experts->merge($other_close);
         }
 
-        Log::info('info', [json_encode("Here")]);
+        foreach ($featured_experts as $expert) {
+            $expert->profession = $expert->getProfession->profession;
+            $expert->review = count($expert->reviews) == 0 ? 0 : $expert->reviews()->avg('rating');
+        }
         return response()->json(Utility::returnSuccess("Done", compact('closest_experts', 'top_experts', 'featured_experts')));
     }
 

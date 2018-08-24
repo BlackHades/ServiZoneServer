@@ -55,6 +55,7 @@ class ServiceController extends Controller
             $s->longitude = $request->longitude;
             if($s->save()){
 //            if(true){
+                $s->profession = $s->getProfession->profession;
                 $verify = (new Verification())->tokenize($s->email);
 //                Mail::to($s->email)->send(new ServiceVerification($verify));
                 $this->sendMail($s, $verify);
@@ -75,9 +76,141 @@ class ServiceController extends Controller
 
         for($i = 0; $i < count($services); $i++){
             $services[$i]->profession = $services[$i]->getProfession->profession;
+            $services[$i]->review = count($services[$i]->reviews) == 0 ? 0 : $services[$i]->reviews()->avg('rating');
         }
         return Utility::returnSuccess("Success", $services);
     }
+
+
+    function updateDetails(Request $request, User $user)
+    {
+        $val = Validator::make($request->all(), [
+            "service" => 'required|exists:services,id',
+            'name' => 'required',
+            'email' => 'required|email',
+            'profession_id' => 'required|exists:professions,id',
+            'mobile' => 'required',
+            'about' => 'required',
+        ], [
+            'service.required' => "Service Id is required",
+            'service.exists' => "Service does not exist",
+            'name.required' => 'Service Name is required',
+            'email.required' => 'Service Email is required',
+            'mobile.required' => 'Service Mobile Number is Required',
+            'profession_id.required' => "Profession is required",
+            'profession_id.exists' => "invalid profession",
+            'about.required' => "Service Description is required",
+        ]);
+        if ($val->fails()) {
+            return response()->json(Utility::returnError("Validation Error", implode("\n", $val->errors()->all())));
+        }
+        $service = Service::find($request->service);
+        if (!$user->can('update', $service))
+            return response()->json(Utility::returnError("You are not authorised to edit service"));
+
+        $service->profession_id = $request->profession_id;
+        $service->name = $request->name;
+        $service->email = $request->email;
+        $service->about = $request->about;
+        $service->mobile = $request->mobile;
+        if ($service->save()) {
+            $service->profession = $service->getProfession->profession;
+            return response()->json(Utility::returnSuccess("Service Successfully Updated", $service));
+        } else {
+            return response()->json(Utility::returnError("Could not update service at this time. Try Again"));
+        }
+    }
+
+    function updateAddress(Request $request, User $user)
+    {
+        $val = Validator::make($request->all(), [
+            "service" => 'required|exists:services,id',
+            'address' => 'required',
+            'latitude' => 'required',
+            'longitude' => 'required',
+        ], [
+            'service.required' => "Service Id is required",
+            'service.exists' => "Service does not exist",
+            'address.required' => 'Service Address is required',
+            'latitude.required' => "latitude is required",
+            'longitude.required' => "longitude is required",
+        ]);
+        if ($val->fails()) {
+            return response()->json(Utility::returnError("Validation Error", implode("\n", $val->errors()->all())));
+        }
+
+        $service = Service::find($request->service);
+        if (!$user->can('update', $service))
+            return response()->json(Utility::returnError("You are not authorised to edit service"));
+        $service->address = $request->address;
+        $service->latitude = $request->latitude;
+        $service->longitude = $request->longitude;
+        if ($service->save()) {
+            $service->profession = $service->getProfession->profession;
+            return response()->json(Utility::returnSuccess("Service Address Updated", $service));
+        } else {
+            return response()->json(Utility::returnError("Could not register service at this time. Try Again"));
+        }
+    }
+
+
+    public function uploadAvatar(Request $request, User $user)
+    {
+
+        $val = Validator::make($request->all(), [
+            "service" => 'required|exists:services,id',
+            "avatar" => 'required'
+        ], [
+            'service.required' => "Service Id is required",
+            'service.exists' => "Service does not exist",
+            'avatar.required' => 'An Avatar is required'
+        ]);
+        if ($val->fails()) {
+            return response()->json(Utility::returnError("Validation Error", implode("\n", $val->errors()->all())));
+        }
+
+        if ($request->hasFile('avatar')) {
+            $service = Service::find($request->service);
+            if (!$user->can('update', $service))
+                return response()->json(Utility::returnError("You are not authorised to edit service"));
+            $file = $request->file('avatar');
+            $filename = time() . "@$service->email-avatar." . $file->getClientOriginalExtension();
+            $file->move(public_path("uploads/"), $filename);
+            $service->avatar = $filename;
+            $service->save();
+            return Utility::returnSuccess($filename);
+        }
+        return Utility::returnError("Avatar Not Found");
+
+    }
+
+
+    function delete(Request $request, User $user)
+    {
+        $val = Validator::make($request->all(), [
+            "service" => 'required|exists:services,id',
+        ], [
+            'service.required' => "Service Id is required",
+            'service.exists' => "Service does not exist",
+        ]);
+
+        if ($val->fails()) {
+            return response()->json(Utility::returnError("Validation Error", implode("\n", $val->errors()->all())));
+        }
+
+        $service = Service::find($request->service);
+        if (!$user->can('delete', $service))
+            return response()->json(Utility::returnError("You are not authorised to edit service"));
+
+        try {
+            $service->delete();
+            return response()->json(Utility::returnSuccess("Service Deleted Successfully"));
+        } catch (\Exception $e) {
+            return response()->json(Utility::returnError("Unable to delete service at this moment", $e->getMessage()));
+        }
+    }
+
+
     private function sendMail(Service $service, ServiceVerification $verify){
         $data = [];
         $data['name'] = $service->name;

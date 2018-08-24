@@ -28,7 +28,7 @@ class Service extends Model
     }
 
     public function reviews(){
-        return $this->hasMany(Review::class,'expert_id');
+        return $this->hasMany(Review::class, 'service_id');
     }
 
     public function averageRating(){

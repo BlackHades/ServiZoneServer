@@ -96,7 +96,7 @@ class AuthController extends Controller {
         $user->latitude = $request->latitude;
         try {
             $user->save();
-            $user->token = $this->storeToken($user->id);
+//            $user->token = $this->storeToken($user->id);
         }
         catch (\Exception $ex){
             return response(Utility::returnError('An error occurred. Details: '.$ex->getMessage()));

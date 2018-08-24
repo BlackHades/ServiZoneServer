@@ -32,10 +32,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['prefix' => 'v1/'], function (){
 
+    //Auth
     Route::post('login', 'Api\AuthController@login');
     Route::post('logout', 'Api\AuthController@logout');
     Route::post('register', ['uses' => 'Api\AuthController@register']);
 
+
+    //Token Check
     Route::group(['middleware' => ['fincoAuth']], function (){
         Route::post('home', 'HomeController@index');
         Route::post('logout', 'Api\AuthController@logout');
@@ -50,6 +53,10 @@ Route::group(['prefix' => 'v1/'], function (){
         Route::group(['prefix' => '/service/'], function (){
             Route::post('create', 'Api\ServiceController@create');
             Route::post('user','Api\ServiceController@getByUserId');
+            Route::post('update/details', 'Api\ServiceController@updateDetails');
+            Route::post('update/address', 'Api\ServiceController@updateAddress');
+            Route::post('upload/avatar', 'Api\ServiceController@uploadAvatar');
+            Route::post('delete', 'Api\ServiceController@delete');
         });
 
         /*
@@ -63,9 +70,15 @@ Route::group(['prefix' => 'v1/'], function (){
             Route::post('logout','AuthController@removeToken');
         });
 
-        
+        Route::group(['prefix' => '/review/'], function () {
+            Route::post('add', 'Api\ReviewController@add');
+            Route::post('service', 'Api\ReviewController@getByServiceId');
+
+        });
     });
 
+
+    Route::get('review/{service_id}', 'Api\ReviewController@getByServiceId');
 
 
     Route::group(['prefix' => '/password/'], function (){
