@@ -36,6 +36,7 @@ Route::group(['prefix' => 'v1/'], function (){
     Route::post('login', 'Api\AuthController@login');
     Route::post('logout', 'Api\AuthController@logout');
     Route::post('register', ['uses' => 'Api\AuthController@register']);
+    Route::post('social', ['uses' => 'Api\AuthController@social']);
 
 
     //Token Check
@@ -57,6 +58,8 @@ Route::group(['prefix' => 'v1/'], function (){
             Route::post('update/address', 'Api\ServiceController@updateAddress');
             Route::post('upload/avatar', 'Api\ServiceController@uploadAvatar');
             Route::post('delete', 'Api\ServiceController@delete');
+            Route::post('search', 'Api\ServiceController@search');
+            Route::post('close', 'Api\ServiceController@close');
         });
 
         /*

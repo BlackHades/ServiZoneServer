@@ -10,6 +10,7 @@ use App\Service;
 use App\ServiceVerification;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Snowfire\Beautymail\Beautymail;
@@ -73,15 +74,25 @@ class ServiceController extends Controller
 //        foreach ($services as $service){
 //            $services->profession = $service->profession->profession;
 //        }
-
-        for($i = 0; $i < count($services); $i++){
-            $services[$i]->profession = $services[$i]->getProfession->profession;
-            $services[$i]->review = count($services[$i]->reviews) == 0 ? 0 : $services[$i]->reviews()->avg('rating');
-        }
+        $services = self::formatServiceCollection($services);
         return Utility::returnSuccess("Success", $services);
     }
 
+    static function formatService(Service $service)
+    {
+        $service->profession = $service->getProfession->profession;
+        $service->review = count($service->reviews) == 0 ? 0 : $service->reviews()->avg('rating');
+        return $service;
+    }
 
+    static function formatServiceCollection($services)
+    {
+        for($i = 0; $i < count($services); $i++){
+            $services[$i] = self::formatService($services[$i]);
+        }
+
+        return $services;
+    }
     function updateDetails(Request $request, User $user)
     {
         $val = Validator::make($request->all(), [
@@ -226,5 +237,71 @@ class ServiceController extends Controller
         });
         Log::info("Sent", [$data]);
 
+    }
+
+    public function search(Request $request)
+    {
+        $search = null;
+        if (isset($request->name) && $request->profession != 0) {
+            $search = Service::where('name', "LIKE", "%{$request->name}%")
+                ->where("profession_id", $request->profession)
+                ->orderBy("name", 'ASC')
+                ->get();
+        } elseif (isset($request->name) && $request->profession == 0) {
+            $search = Service::where('name', "LIKE", "%{$request->name}%")
+                ->orderBy("name", 'ASC')
+                ->get();
+        } elseif (!isset($request->name) && $request->profession == 0) {
+            $search = Service::orderBy("name", 'ASC')
+                ->get();
+        } elseif (!isset($request->name) && $request->profession != 0) {
+            $search = Service::orderBy("name", 'ASC')
+                ->where("profession_id", $request->profession)
+                ->get();
+        }
+
+        $search = self::formatServiceCollection($search);
+        return Utility::returnSuccess('Success', $search);
+    }
+
+    public function close(Request $request)
+    {
+        $val = Validator::make($request->all(), [
+            "latitude" => 'required',
+            "longitude" => 'required'
+        ], [
+            'latitude.required' => "Latitude is required",
+            'longitude.required' => "Longitude is required",
+        ]);
+
+        if ($val->fails()) {
+            return response()->json(Utility::returnError("Validation Error", implode("\n", $val->errors()->all())));
+        }
+
+        $longitude = $request->longitude;
+        $latitude = $request->latitude;
+        $circle_radius = 3959;
+
+        $query = DB::select('SELECT * FROM
+                    (SELECT services.id, services.name, services.avatar, services.profession_id, mobile, latitude, longitude, (' . $circle_radius . ' * acos(cos(radians(' . $latitude . ')) * cos(radians(latitude)) *
+                    cos(radians(longitude) - radians(' . $longitude . ')) +
+                    sin(radians(' . $latitude . ')) * sin(radians(latitude))))
+                    AS distance
+                    FROM services 
+                    where `is_blocked` = "0") 
+                    AS distances
+        ORDER BY distance');
+
+//        echo $query;return;
+
+        $services = Service::hydrate($query)->take(40);
+
+        if (count($services) == 0)
+            return response()->json(Utility::returnError("No Services found"));
+
+
+        $services = self::formatServiceCollection($services);
+        return $services;
+        return Utility::returnSuccess("Done", $services);
     }
 }

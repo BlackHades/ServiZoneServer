@@ -15,4 +15,6 @@ class WebConstant
     public static $APP_COLOR = "00427A";
 
     public static $DO_NOT_REPLY_MAIL = "do-not-reply@kiakia.com";
+
+    public static $DEFAULT_PASSWORD = "ASDFGHJKL!@#$%^&*()";
 }

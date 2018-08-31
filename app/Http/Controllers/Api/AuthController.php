@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Helper\WebConstant;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Utility;
 use App\Notifications\NewExpertAdmin;
+use App\Repository\UserRepository;
 use App\Tokens;
 use App\User;
 use Illuminate\Http\Request;
@@ -34,6 +36,13 @@ class AuthController extends Controller {
 
      */
 
+    protected $users;
+
+    public function __construct(UserRepository $userRepository)
+    {
+        $this->users = $userRepository;
+    }
+
     public function login(Request $request) {
         $username = $request->email;
         $password = $request->password;
@@ -48,9 +57,7 @@ class AuthController extends Controller {
             }
 
             return response()->json(Utility::returnSuccess("Logged in successfully", $user));
-        }
-
-        else if (Auth::attempt(['mobile' => $username, 'password' => $password])){
+        } else if (Auth::attempt(['mobile' => $username, 'password' => $password])){
             $user = Auth::user();
             $token = $this->storeToken($user->id);
             $user->token = $token;
@@ -60,8 +67,7 @@ class AuthController extends Controller {
             }
 
             return response(Utility::returnSuccess("Logged in successfully", $user));
-        }
-        else {
+        } else {
             return response(Utility::returnError("Invalid login details"));
         }
     }
@@ -97,8 +103,7 @@ class AuthController extends Controller {
         try {
             $user->save();
 //            $user->token = $this->storeToken($user->id);
-        }
-        catch (\Exception $ex){
+        } catch (\Exception $ex){
             return response(Utility::returnError('An error occurred. Details: '.$ex->getMessage()));
         }
 
@@ -136,6 +141,35 @@ class AuthController extends Controller {
 
     function generateToken() {
         return str_random(64);
+    }
+
+
+    function social(Request $request)
+    {
+        $val = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required'
+        ], [
+            'name.required' => 'Fullname is required',
+            'email.required' => "Email Address is required"
+        ]);
+
+        if ($val->fails())
+            return response()->json(Utility::returnError("Validation Error", implode("\n", $val->errors()->all())));
+        $user = $this->users->getByEmail($request->email);
+        if (!isset($user)) {
+            $user = new User();
+            $user->name = $request->name;
+            $user->password = bcrypt(WebConstant::$DEFAULT_PASSWORD);
+            $user->email = $request->email;
+            if ($request->avatar != "") {
+                $user->avatar = $request->avatar;
+            }
+            $user->save();
+        }
+        $user->token = $this->storeToken($user->id);
+
+        return Utility::returnSuccess("Success", $user);
     }
 
 }
