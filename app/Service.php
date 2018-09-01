@@ -43,7 +43,7 @@ class Service extends Model
     {
         $circle_radius = 3959;
         $query = DB::select('SELECT * FROM
-                    (SELECT services.id, services.name, services.avatar, services.profession_id, mobile, latitude, longitude, (' . $circle_radius . ' * acos(cos(radians(' . $latitude . ')) * cos(radians(latitude)) *
+                    (SELECT services.id, services.name, services.avatar, services.profession_id, email, address, about, user_id, mobile, latitude, longitude, (' . $circle_radius . ' * acos(cos(radians(' . $latitude . ')) * cos(radians(latitude)) *
                     cos(radians(longitude) - radians(' . $longitude . ')) +
                     sin(radians(' . $latitude . ')) * sin(radians(latitude))))
                     AS distance

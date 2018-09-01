@@ -34,9 +34,7 @@ class HomeController extends Controller {
 
         //Use Lat ad Log Difference
         $closest_experts = Service::nearest($latitude, $longitude)
-            ->take(15)
-            ->orderBy('id', 'desc')
-            ->get();
+            ->take(15);
         if (count($closest_experts) < 15) {
             $other_close = Service::inRandomOrder()->take(15 - count($closest_experts))->get();
             $closest_experts = $closest_experts->merge($other_close);
