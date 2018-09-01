@@ -10,7 +10,6 @@ use App\Service;
 use App\ServiceVerification;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Snowfire\Beautymail\Beautymail;
@@ -280,28 +279,16 @@ class ServiceController extends Controller
 
         $longitude = $request->longitude;
         $latitude = $request->latitude;
-        $circle_radius = 3959;
-
-        $query = DB::select('SELECT * FROM
-                    (SELECT services.id, services.name, services.avatar, services.profession_id, mobile, latitude, longitude, (' . $circle_radius . ' * acos(cos(radians(' . $latitude . ')) * cos(radians(latitude)) *
-                    cos(radians(longitude) - radians(' . $longitude . ')) +
-                    sin(radians(' . $latitude . ')) * sin(radians(latitude))))
-                    AS distance
-                    FROM services 
-                    where `is_blocked` = "0") 
-                    AS distances
-        ORDER BY distance');
-
 //        echo $query;return;
 
-        $services = Service::hydrate($query)->take(40);
+        $services = Service::nearest($latitude, $longitude)->take(20);
 
         if (count($services) == 0)
             return response()->json(Utility::returnError("No Services found"));
 
 
         $services = self::formatServiceCollection($services);
-        return $services;
+        //return $services;
         return Utility::returnSuccess("Done", $services);
     }
 }

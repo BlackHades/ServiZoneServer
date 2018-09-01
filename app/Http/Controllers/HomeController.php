@@ -33,8 +33,7 @@ class HomeController extends Controller {
 //            ->get();
 
         //Use Lat ad Log Difference
-        $closest_experts = Service::withCount('reviews')
-            ->join('professions', 'services.profession_id', 'professions.id')
+        $closest_experts = Service::nearest($latitude, $longitude)
             ->take(15)
             ->orderBy('id', 'desc')
             ->get();
@@ -60,7 +59,6 @@ class HomeController extends Controller {
 //            ->get();
 
         $top_experts = Service::withCount('reviews')
-            ->join('professions', 'services.profession_id', 'professions.id')
             ->take(15)
             ->inRandomOrder()
             ->get();
