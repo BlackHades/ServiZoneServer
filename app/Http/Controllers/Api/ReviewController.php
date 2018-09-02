@@ -39,7 +39,7 @@ class ReviewController extends Controller
 
 
         $service = Service::find($request->service);
-        if ($user->can('create-review', $service))
+        if ($user->id == $service->user_id)
             return response()->json(Utility::returnError("You can't make a review on this service"));
 
         $review = new Review();
