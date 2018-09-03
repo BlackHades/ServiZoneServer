@@ -33,6 +33,8 @@ class HomeController extends Controller {
 //            ->get();
 
         //Use Lat ad Log Difference
+        $latitude = $latitude == null ? 0.0 : $latitude;
+        $longitude = $longitude == null ? 0.0 : $longitude;
         $closest_experts = Service::nearest($latitude, $longitude)
             ->take(15);
         if (count($closest_experts) < 15) {

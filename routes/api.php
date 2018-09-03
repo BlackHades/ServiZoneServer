@@ -60,7 +60,16 @@ Route::group(['prefix' => 'v1/'], function (){
             Route::post('delete', 'Api\ServiceController@delete');
             Route::post('search', 'Api\ServiceController@search');
             Route::post('close', 'Api\ServiceController@close');
+            Route::post('report', 'Api\ServiceController@report');
         });
+
+        Route::group(['prefix' => '/history/'], function () {
+            Route::post('create', 'Api\HistoryController@create');
+            Route::post('user', 'Api\HistoryController@getUserHistory');
+            Route::post('service', 'Api\HistoryController@getServiceHistory');
+        });
+
+
 
         /*
 |----------------------------------------------------

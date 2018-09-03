@@ -6,6 +6,7 @@ use App\Helper\Verification;
 use App\Helper\WebConstant;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Utility;
+use App\ReportedUsers;
 use App\Service;
 use App\ServiceVerification;
 use App\User;
@@ -58,7 +59,7 @@ class ServiceController extends Controller
                 $s->profession = $s->getProfession->profession;
                 $verify = (new Verification())->tokenize($s->email);
 //                Mail::to($s->email)->send(new ServiceVerification($verify));
-                $this->sendMail($s, $verify);
+                //$this->sendMail($s, $verify);
                 return response()->json(Utility::returnSuccess("Service Successfully Registered", $s));
             }else{
                 return response()->json(Utility::returnError("Could not register service at this time. Try Again"));
@@ -77,7 +78,7 @@ class ServiceController extends Controller
         return Utility::returnSuccess("Success", $services);
     }
 
-    static function formatService(Service $service)
+    public static function formatService(Service $service)
     {
         $service->profession = $service->getProfession->profession;
         $service->review = count($service->reviews) == 0 ? 0 : $service->reviews()->avg('rating');
@@ -290,5 +291,25 @@ class ServiceController extends Controller
         $services = self::formatServiceCollection($services);
         //return $services;
         return Utility::returnSuccess("Done", $services);
+    }
+
+
+    public function report(Request $request, User $user)
+    {
+        $val = Validator::make($request->all(), [
+            "message" => 'required',
+            "service" => 'required|exists:services,id'
+        ]);
+
+        if ($val->fails())
+            return response()->json(Utility::returnError(implode("\n", $val->errors()->all())));
+
+        $report = new ReportedUsers();
+        $report->user_id = $user->id;
+        $report->message = $request->message;
+        $report->service_id = $request->service;
+        $report->save();
+
+        return Utility::returnSuccess("Complaint Received.");
     }
 }

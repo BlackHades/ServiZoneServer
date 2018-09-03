@@ -16,8 +16,10 @@ class ReviewController extends Controller
     public function getByServiceId(Request $request)
     {
         $service_id = $request->service;
-        $rating = Review::with('user', 'service')->where('service_id', $service_id)
+        $rating = Review::with('user')->where('service_id', $service_id)
             ->orderBy('id', 'DESC')->get();
+
+//        $rating->service = ServiceController::formatService($rating->service);
 
         return response()->json(Utility::returnSuccess("Success", $rating));
     }

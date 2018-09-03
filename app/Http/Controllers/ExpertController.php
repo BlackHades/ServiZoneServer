@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Expert;
-use App\ReportedUsers;
 use App\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -44,21 +43,6 @@ class ExpertController extends VoyagerBreadController {
         } else {
             return response()->json(Utility::returnError("No expert found"));
         }
-    }
-
-    public function report(Request $request) {
-        $user_id = $request->user_id;
-        $message = $request->message;
-        $expert_id = $request->expert_id;
-
-        $report = new ReportedUsers();
-        $report->user_id = $user_id;
-        $report->message = $message;
-        $report->expert_id = $expert_id;
-        $report->save();
-
-        $report->status = "success";
-        return response()->json($report);
     }
 
     public function approve($id) {
