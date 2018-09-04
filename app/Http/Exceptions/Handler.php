@@ -48,9 +48,9 @@ class Handler extends ExceptionHandler
     {
         if($request->is('api/*')){
             if($exception instanceof QueryException || $exception instanceof \PDOException){
-                return Utility::returnError("An Error Occurred");
+                return response()->json(Utility::returnError("An Error Occurred"));
             }
-            return Utility::returnError($exception->getMessage());
+            return response()->json(Utility::returnError($exception->getMessage()));
         }
         return parent::render($request, $exception);
     }
