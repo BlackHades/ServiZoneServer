@@ -380,3 +380,4 @@ Stack trace:
 [2018-09-03 16:33:37] local.INFO: Tokena ["{\"id\":12,\"user_id\":100,\"token\":\"UGS5UlMjYy9FNn9PzFIo7mcU9RZ9M2FL3tuqwbLw3KzTl0TAE6e6ROiK3Adgedun\",\"updated_at\":\"2018-09-02 12:24:46\",\"created_at\":\"2018-08-07 10:40:51\"}"] 
 [2018-09-04 01:18:10] local.INFO: Tokena ["{\"id\":22,\"user_id\":127,\"token\":\"KuSiYY5V0LYoU5sf3FJS9P1myoftnUntDXqFjKJ4AN6eXFP3aWFc4xPM59kqfdBM\",\"updated_at\":\"2018-09-03 15:40:01\",\"created_at\":\"2018-09-03 15:40:01\"}"] 
 [2018-09-04 01:37:04] local.INFO: Tokena ["{\"id\":22,\"user_id\":127,\"token\":\"wb9u1QVJ97A97GJTOqfJ5LxEsOINIeUlmUXLWq2NMoaUnpUO9FBCVo5Fa1b8WO1X\",\"updated_at\":\"2018-09-04 01:18:10\",\"created_at\":\"2018-09-03 15:40:01\"}"] 
+[2018-09-04 15:10:21] local.INFO: Tokena ["{\"id\":22,\"user_id\":127,\"token\":\"IxgBxfe9zaKsy0FfrQoR7Krd4wDIVXsPxni7k4aqSlVwQ0WtbdAuoKA5lZeiU0Dw\",\"updated_at\":\"2018-09-04 01:37:04\",\"created_at\":\"2018-09-03 15:40:01\"}"] 
