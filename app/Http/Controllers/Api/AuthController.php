@@ -102,7 +102,8 @@ class AuthController extends Controller {
         $user->latitude = $request->latitude;
         try {
             $user->save();
-//            $user->token = $this->storeToken($user->id);
+            $token = $this->storeToken($user->id);
+            $user->token = $token;
         } catch (\Exception $ex){
             return response(Utility::returnError('An error occurred. Details: '.$ex->getMessage()));
         }
@@ -132,8 +133,8 @@ class AuthController extends Controller {
     }
 
     function logout(User $user, Request $request){
-        if(isset($user) && !empty($user)){
-            //$user->token()->delete();
+        if(!empty($user)){
+            $user->token()->delete();
         }
         return Utility::returnSuccess('Sign Out Successful');
 

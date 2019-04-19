@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Utility;
 use App\User;
+use Hamcrest\Util;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use TCG\Voyager\Http\Controllers\Controller;
 
@@ -52,15 +54,23 @@ class UserController extends Controller {
 
     public function uploadAvatar(User $user, Request $request){
 
-        if($request->hasFile('avatar')){
-            $file = $request->file('avatar');
-            $filename = time() . "@$user->email-avatar." .$file->getClientOriginalExtension();
-            $file->move(public_path("uploads/"), $filename);
-            $user->avatar = $filename;
-            $user->save();
-            return Utility::returnSuccess("Image Uploaded Successfully",$filename);
+        try{
+            Log::info("here");
+            if($request->hasFile('avatar')){
+                $file = $request->file('avatar');
+                $filename = time() . "@$user->email-avatar." .$file->getClientOriginalExtension();
+                $file->move(public_path("uploads/"), $filename);
+                $user->avatar = $filename;
+                $user->save();
+                return Utility::returnSuccess("Image Uploaded Successfully",$filename);
+            }
+            return Utility::returnError("Image Not Found");
+        }catch (\Exception $exception){
+            Log::error("An Error Occurred when uploading an image",[
+                "exception" => $exception
+            ]);
+            return Utility::returnError("An Error Occurred");
         }
-        return Utility::returnError("Image Not Found");
 
     }
 }

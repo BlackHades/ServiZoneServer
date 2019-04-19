@@ -7,6 +7,7 @@ use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Support\Facades\Log;
 
 class Handler extends ExceptionHandler
 {
@@ -34,6 +35,7 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $exception)
     {
+        Log::error("An Error Occurred", ["exception" => $exception]);
         parent::report($exception);
     }
 
@@ -46,6 +48,7 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        Log::error("An Error Occurred", ["exception" => $exception,"request" => $request->all()]);
         if($request->is('api/*')){
             if($exception instanceof QueryException || $exception instanceof \PDOException){
                 return response()->json(Utility::returnError("An Error Occurred"));
